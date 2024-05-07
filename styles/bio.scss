@@ -68,5 +68,30 @@
   }
   &__text {
     @include body-copy-mobile(capitalize);
+    margin: 0;
+    padding: 0;
+    margin-top: 16px;
+  }
+}
+
+/* ****************************** */
+/*         GALLERY SECTION        */
+/* ****************************** */
+.gallery {
+  padding: 0 16px;
+  margin-top: 24px;
+  &__header {
+    @include section-header-mobile(capitalize);
+    margin: 0;
+    padding: 0;
+    margin-bottom: 16px;
+  }
+  &__images {
+    display: flex;
+    flex-direction: column;
+  }
+  &__image {
+    width: 100%;
+    margin-bottom: 16px;
   }
 }
