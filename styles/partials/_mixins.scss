@@ -1,15 +1,15 @@
 @use "./variables" as *;
 
-/* ****************************** */
-/*             MOBILE             */
-/* ****************************** */
-
 @font-face {
   font-family: 'Avenir';
   src: url('../../assets/fonts/AvenirNextLTPro.ttf');
   font-weight: normal;
   font-style: normal;
 }
+
+/* ****************************** */
+/*      TYPEFACES --> MOBILE      */
+/* ****************************** */
 
 @mixin page-header-mobile ($transform) {
   font-family: Avenir;
@@ -63,4 +63,20 @@
   line-height: 1.25rem; // 20px
   text-decoration: none;
   text-transform: capitalize;
+}
+
+/* ****************************** */
+/*           MEDIA QUERIES        */
+/* ****************************** */
+
+@mixin respond-to-min($breakpoint) {
+  @media (min-width: $breakpoint) {
+    @content
+  }
+}
+
+@mixin respond-to-max($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content
+  }
 }
