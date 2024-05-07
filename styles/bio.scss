@@ -1,2 +1,24 @@
 @use "./partials/mixins" as *;
+@use "./partials/variables" as *;
 @use "./partials/globals";
+
+.hero {
+  background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../assets/images/hero-bio.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 500px;
+  &__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding: 0 16px;
+  }
+  &__header {
+    margin: 0;
+    padding: 0;
+    @include page-header-mobile(capitalize);
+    color: $white;
+  }
+}
