@@ -2,6 +2,9 @@
 @use "./partials/variables" as *;
 @use "./partials/globals";
 
+/* ****************************** */
+/*              HERO              */
+/* ****************************** */
 .hero {
   background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../assets/images/hero-bio.jpg");
   background-size: cover;
@@ -20,5 +23,50 @@
     padding: 0;
     @include page-header-mobile(capitalize);
     color: $white;
+  }
+}
+
+/* ****************************** */
+/*         ABOUT SECTION          */
+/* ****************************** */
+.about {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  &__header {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 16px;
+    @include section-header-mobile(capitalize);
+  }
+  &__container {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+  }
+  &__figure {
+    margin: 0;
+  }
+  &__image {
+    width: 100%;
+  }
+  &__caption {
+    &--header {
+      @include subheader-mobile(none);
+    }
+    &--subheader {
+      @include subheader-mobile(none);
+    }
+  }
+  &__content {
+    margin-top: 24px;
+  }
+  &__subheader {
+    margin: 0;
+    padding: 0;
+    @include section-header-mobile(capitalize);
+  }
+  &__text {
+    @include body-copy-mobile(capitalize);
   }
 }
