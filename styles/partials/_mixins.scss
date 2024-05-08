@@ -8,61 +8,16 @@
 }
 
 /* ****************************** */
-/*      TYPEFACES --> MOBILE      */
+/*            TYPEFACES           */
 /* ****************************** */
 
-@mixin page-header-mobile ($transform) {
-  font-family: Avenir;
-  font-weight: $font-weight-bold;
-  font-size: $page-header-mobile;
-  line-height: 2rem; // 32px
-  text-decoration: none;
-  text-transform: $transform;
-}
-
-@mixin section-header-mobile ($transform) {
-  font-family: Avenir;
-  font-weight: $font-weight-bold;
-  font-size: $section-header-mobile;
-  line-height: 2rem; // 32px
-  text-decoration: none;
-  text-transform: $transform;
-}
-
-@mixin subheader-mobile ($transform) {
-  font-family: Avenir;
-  font-weight: $font-weight-demi;
-  font-size: $subheader-mobile;
-  line-height: 1.375rem; // 22px
-  text-decoration: none;
-  text-transform: $transform;
-}
-
-@mixin body-copy-mobile ($transform) {
-  font-family: Avenir;
-  font-weight: $font-weight-regular;
-  font-size: $body-copy-mobile;
-  line-height: 1.125rem; // 18px
-  text-decoration: none;
-  text-transform: $transform;
-}
-
-@mixin footer-copy-mobile ($transform) {
-  font-family: Avenir;
-  font-weight: $font-weight-regular;
-  font-size: $footer-copy-mobile;
-  line-height: 1.125rem; // 18px
-  text-decoration: none;
-  text-transform: $transform;
-}
-
-@mixin labels-buttons-mobile ($transform) {
-  font-family: Avenir;
-  font-family: $font-weight-bold;
-  font-size: $labels-buttons-mobile;
-  line-height: 1.25rem; // 20px
-  text-decoration: none;
-  text-transform: capitalize;
+@mixin typography () {
+  font-family: $font-family;
+  font-size: $font-size;
+  color: $color;
+  line-height: $line-height;
+  text-decoration: $text-decoration;
+  text-transform: $text-transform;
 }
 
 /* ****************************** */
