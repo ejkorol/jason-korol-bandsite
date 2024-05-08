@@ -1,11 +1,17 @@
 @use "./mixins" as *;
 @use "./variables" as *;
 
+/* ****************************** */
+/*            BODY HTML           */
+/* ****************************** */
 body, html {
   margin: 0;
   padding: 0;
 }
 
+/* ****************************** */
+/*             NAVBAR             */
+/* ****************************** */
 .header {
   background-color: $black;
   height: 120px;
@@ -40,6 +46,50 @@ body, html {
       &--active {
         border-bottom: 4px solid $white;
       }
+    }
+  }
+}
+
+/* ****************************** */
+/*             FOOTER             */
+/* ****************************** */
+.footer {
+  background-color: $black;
+  &__section {
+    padding: 16px 16px;
+  }
+}
+.footer-section {
+  &__header {
+    @include section-header-mobile(capitalize);
+    color: $white;
+    margin: 0;
+  }
+  &__subheader {
+    @include subheader-mobile(capitalize);
+    color: $white;
+    margin: 16px 0;
+  }
+  &__text {
+    @include footer-copy-mobile(capitalize);
+    color: $white;
+    margin: 0;
+  }
+  &__icons {
+    margin-top: 16px;
+    display: flex;
+    gap: 24px;
+  }
+  &__icon {
+    height: 24px;
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+  }
+  &__logo {
+    @include respond-to-max($tablet) {
+      display: none;
     }
   }
 }
