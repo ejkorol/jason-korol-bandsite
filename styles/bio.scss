@@ -21,7 +21,6 @@
   &__header {
     margin: 0;
     padding: 0;
-    @include page-header-mobile(capitalize);
     color: $white;
   }
 }
@@ -37,7 +36,6 @@
     margin: 0;
     padding: 0;
     margin-bottom: 16px;
-    @include section-header-mobile(capitalize);
   }
   &__container {
     padding: 0 16px;
@@ -52,10 +50,8 @@
   }
   &__caption {
     &--header {
-      @include subheader-mobile(none);
     }
     &--subheader {
-      @include subheader-mobile(none);
     }
   }
   &__content {
@@ -64,10 +60,8 @@
   &__subheader {
     margin: 0;
     padding: 0;
-    @include section-header-mobile(capitalize);
   }
   &__text {
-    @include body-copy-mobile(capitalize);
     margin: 0;
     padding: 0;
     margin-top: 16px;
@@ -81,7 +75,6 @@
   padding: 0 16px;
   margin-top: 24px;
   &__header {
-    @include section-header-mobile(capitalize);
     margin: 0;
     padding: 0;
     margin-bottom: 16px;

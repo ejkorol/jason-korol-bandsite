@@ -56,7 +56,6 @@ body, html {
       height: 100%;
       align-items: center;
       color: $mercury;
-      @include section-header-mobile(capitalize);
       &--active {
         border-bottom: 4px solid $white;
         @include respond-to-min($tablet) {
@@ -92,17 +91,14 @@ body, html {
 }
 .footer-section {
   &__header {
-    @include section-header-mobile(capitalize);
     color: $white;
     margin: 0;
   }
   &__subheader {
-    @include subheader-mobile(capitalize);
     color: $white;
     margin: 16px 0;
   }
   &__text {
-    @include footer-copy-mobile(capitalize);
     color: $white;
     margin: 0;
   }
