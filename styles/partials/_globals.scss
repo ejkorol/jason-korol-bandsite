@@ -20,14 +20,25 @@ body, html {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    @include respond-to-min($tablet) {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
     &__brand {
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
+      @include respond-to-min($tablet) {
+        padding: 0 24px;
+      }
     }
     &__logo {
       width: 120px;
+    }
+    &__menu {
+      height: 100%;
     }
     &__list {
       display: flex;
@@ -36,15 +47,35 @@ body, html {
       justify-content: space-evenly;
       margin: 0;
       padding: 0;
+      height: 100%;
     }
     &__item {
       display: flex;
       justify-content: center;
       width: 100%;
+      height: 100%;
+      align-items: center;
       @include section-header-mobile(capitalize);
       color: $white;
       &--active {
         border-bottom: 4px solid $white;
+        @include respond-to-min($tablet) {
+          border: none;
+        }
+      @include respond-to-min($tablet) {
+        position: relative;
+        align-items: center;
+        margin-right: 24px;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background-color: $white;
+        }
+      }
       }
     }
   }
