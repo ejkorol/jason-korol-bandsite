@@ -171,7 +171,7 @@ body, html {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 500px;
+  height: 30vh;
 }
 .hero__container {
   display: flex;
@@ -183,7 +183,12 @@ body, html {
 .hero__header {
   margin: 0;
   padding: 0;
+  font-family: "Avenir Bold";
+  font-size: 1.5rem;
   color: #FFFFFF;
+  line-height: 2rem;
+  text-decoration: none;
+  text-transform: capitalize;
 }
 
 /* ****************************** */
@@ -198,6 +203,12 @@ body, html {
   margin: 0;
   padding: 0;
   margin-bottom: 16px;
+  font-family: "Avenir Bold";
+  font-size: 1.5rem;
+  color: #323232;
+  line-height: 2rem;
+  text-decoration: none;
+  text-transform: capitalize;
 }
 .about__container {
   padding: 0 16px;
@@ -210,17 +221,45 @@ body, html {
 .about__image {
   width: 100%;
 }
+.about__caption--header {
+  font-family: "Avenir Demi";
+  font-size: 0.875rem;
+  color: #323232;
+  line-height: 1.375rem;
+  text-decoration: none;
+  text-transform: sentence;
+}
+.about__caption--subheader {
+  font-family: "Avenir Demi";
+  font-size: 0.875rem;
+  color: #323232;
+  line-height: 1.375rem;
+  text-decoration: none;
+  text-transform: sentence;
+}
 .about__content {
   margin-top: 24px;
 }
 .about__subheader {
   margin: 0;
   padding: 0;
+  font-family: "Avenir Demi";
+  font-size: 0.875rem;
+  color: #323232;
+  line-height: 1.375rem;
+  text-decoration: none;
+  text-transform: capitalize;
 }
 .about__text {
   margin: 0;
   padding: 0;
   margin-top: 16px;
+  font-family: "Avenir Regular";
+  font-size: 0.813rem;
+  color: #323232;
+  line-height: 1.125rem;
+  text-decoration: none;
+  text-transform: sentence;
 }
 
 /* ****************************** */
@@ -234,14 +273,32 @@ body, html {
   margin: 0;
   padding: 0;
   margin-bottom: 16px;
+  font-family: "Avenir Bold";
+  font-size: 1.5rem;
+  color: #323232;
+  line-height: 2rem;
+  text-decoration: none;
+  text-transform: capitalize;
 }
 .gallery__images {
   display: flex;
   flex-direction: column;
 }
+@media (min-width: 767px) {
+  .gallery__images {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+}
 .gallery__image {
   width: 100%;
   margin-bottom: 16px;
+}
+@media (min-width: 767px) {
+  .gallery__image {
+    width: 33%;
+    margin: 0;
+  }
 }
 
 /*# sourceMappingURL=bio.css.map */
