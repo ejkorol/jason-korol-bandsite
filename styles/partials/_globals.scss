@@ -14,7 +14,7 @@ body, html {
 /* ****************************** */
 .header {
   background-color: $black;
-  height: 120px;
+  height: 140px;
   .navbar {
     height: 100%;
     display: flex;
@@ -35,10 +35,10 @@ body, html {
       }
     }
     &__logo {
-      width: 120px;
+      height: 35px;
     }
     &__menu {
-      height: 100%;
+      height: 80%;
     }
     &__list {
       display: flex;
@@ -55,12 +55,21 @@ body, html {
       width: 100%;
       height: 100%;
       align-items: center;
-      color: $mercury;
+      @include typography("Avenir Regular", 1.5rem, $mercury, 32px, none, capitalize);
       &--active {
-        border-bottom: 4px solid $white;
-        @include respond-to-min($tablet) {
-          border: none;
-        }
+      @include typography("Avenir Demi", 1.5rem, $white, 32px, none, capitalize);
+      position: relative;
+      align-items: center;
+      margin-right: 24px;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-color: $white;
+      }
       @include respond-to-min($tablet) {
         position: relative;
         align-items: center;
@@ -85,30 +94,36 @@ body, html {
 /* ****************************** */
 .footer {
   background-color: $black;
+  padding: 1.5rem 0;
   &__section {
     padding: 16px 16px;
   }
 }
 .footer-section {
   &__header {
-    color: $white;
     margin: 0;
+    @include typography("Avenir Demi", $section-header-mobile, $white, 2rem, none, capitalize);
   }
   &__subheader {
-    color: $white;
-    margin: 16px 0;
+    margin: 1.5rem 0 1rem 0;
+    @include typography("Avenir Demi", $subheader-mobile, $white, 1.5rem, none, capitalize);
   }
   &__text {
-    color: $white;
     margin: 0;
+    @include typography("Avenir Regular", $footer-copy-mobile, $white, 1.5rem, none, capitalize);
+  }
+  &__link {
+    margin: 0;
+    margin-top: 1rem;
+    @include typography("Avenir Regular", $footer-copy-mobile, $white, 1.5rem, none, capitalize);
   }
   &__icons {
-    margin-top: 16px;
+    margin-top: 1.5rem;
     display: flex;
-    gap: 24px;
   }
   &__icon {
-    height: 24px;
+    height: 2.5rem;
+    margin-right: 3rem;
   }
   &__item {
     display: flex;
@@ -117,6 +132,14 @@ body, html {
   &__logo {
     @include respond-to-max($tablet) {
       display: none;
+    }
+    &--mobile {
+      // height: 2.188rem;
+      width: 10rem;
+      margin: 1.5rem 0 1rem 0;
+      @include respond-to-min($tablet) {
+        display: none;
+      }
     }
   }
 }
