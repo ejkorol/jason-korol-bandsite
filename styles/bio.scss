@@ -17,6 +17,9 @@
     align-items: center;
     height: 100%;
     padding: 0 16px;
+    @include respond-to-min($tablet) {
+      margin-left: 1.5rem;
+    }
   }
   &__header {
     margin: 0;
@@ -32,11 +35,17 @@
   display: flex;
   flex-direction: column;
   margin-top: 1.5rem;
+  @include respond-to-min($tablet) {
+    margin-top: 4rem;
+  }
   &__header {
     margin: 0;
     padding: 0;
     margin-bottom: 16px;
     @include typography("Avenir Demi", $section-header-mobile, $black, 2rem, none, capitalize);
+    @include respond-to-min($tablet) {
+      margin-left: 1.5rem;
+    }
   }
   &__container {
     padding: 0 16px;
@@ -45,9 +54,19 @@
   }
   &__figure {
     margin: 0;
+    @include respond-to-min($tablet) {
+      display: flex;
+      flex-direction: column;
+      padding: 0 4rem;
+    }
   }
   &__image {
     width: 100%;
+    @include respond-to-min($tablet) {
+      height: 400px;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
   }
   &__caption {
     margin-top: 1rem;
@@ -56,6 +75,9 @@
     }
     &--subheader {
       @include typography("Avenir Demi", $subheader-mobile, $black, 2.75rem, none, sentence);
+      @include respond-to-min($tablet) {
+        @include typography("Avenir Demi", 1rem, $black, 2.75rem, none, sentence);
+      }
     }
   }
   &__subheader {
@@ -63,6 +85,22 @@
     padding: 0;
     margin-top: 1.5rem;
     @include typography("Avenir Regular", $subheader-mobile, $black, 1.375rem, none, capitalize);
+    @include respond-to-min($tablet) {
+      @include typography("Avenir Demi", $subheader, $black, 2.75rem, none, sentence);
+    }
+  }
+  &__content {
+    @include respond-to-min($tablet) {
+      margin-top: 1rem;
+      padding: 0 4rem;
+    }
+  }
+  &__text-wrapper {
+    @include respond-to-min($tablet) {
+      margin-top: 1rem;
+      display: flex;
+      gap: 2rem;
+    }
   }
   &__text {
     margin: 0;
@@ -78,6 +116,10 @@
 .gallery {
   padding: 0 16px;
   margin-top: 24px;
+  @include respond-to-min($tablet) {
+    margin-top: 4rem;
+    padding: 2rem;
+  }
   &__header {
     margin: 0;
     padding: 0;
@@ -90,14 +132,16 @@
     @include respond-to-min($tablet) {
       flex-wrap: wrap;
       flex-direction: row;
+      justify-content: space-between;
     };
   }
   &__image {
     width: 100%;
     margin-bottom: 16px;
     @include respond-to-min($tablet) {
-      width: 33%;
+      width: 31%;
       margin: 0;
+      margin-bottom: 2rem;
     };
   }
 }
