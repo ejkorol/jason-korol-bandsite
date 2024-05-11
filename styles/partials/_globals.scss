@@ -32,13 +32,20 @@ body, html {
       align-items: center;
       @include respond-to-min($tablet) {
         padding: 0 24px;
+        margin-left: 2rem;
       }
     }
     &__logo {
       height: 35px;
+      @include respond-to-min($tablet) {
+        margin-right: 4rem;
+      }
     }
     &__menu {
       height: 80%;
+      @include respond-to-min($tablet) {
+        height: 100%;
+      }
     }
     &__list {
       display: flex;
@@ -48,6 +55,30 @@ body, html {
       margin: 0;
       padding: 0;
       height: 100%;
+    }
+    &__link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      @include typography("Avenir Regular", 1.5rem, $mercury, 32px, none, capitalize);
+      &:hover {
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          background-color: $white;
+        }
+      }
+      &--active {
+        @include typography("Avenir Regular", 1.5rem, $white, 32px, none, capitalize);
+      }
     }
     &__item {
       display: flex;
@@ -73,7 +104,7 @@ body, html {
       @include respond-to-min($tablet) {
         position: relative;
         align-items: center;
-        margin-right: 24px;
+        margin-right: 4rem;
         &:after {
           content: "";
           position: absolute;
@@ -84,7 +115,7 @@ body, html {
           background-color: $white;
         }
       }
-      }
+    }
     }
   }
 }
