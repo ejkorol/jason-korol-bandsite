@@ -1,0 +1,110 @@
+@use "./mixins" as *;
+@use "./variables" as *;
+
+.header {
+  background-color: $black;
+  height: 8.75rem;
+  .navbar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include respond-to-min($tablet) {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+    }
+    &__brand {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include respond-to-min($tablet) {
+        padding: 0 1.5rem;
+        margin-left: 2rem;
+      }
+    }
+    &__logo {
+      height: 2.188;
+      @include respond-to-min($tablet) {
+        margin-right: 4rem;
+      }
+    }
+    &__menu {
+      height: 80%;
+      @include respond-to-min($tablet) {
+        height: 100%;
+      }
+    }
+    &__list {
+      display: flex;
+      flex-direction: row;
+      list-style: none;
+      justify-content: space-evenly;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+    }
+    &__link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      @include typography("Avenir Regular", 1.5rem, $mercury, 2rem, none, capitalize);
+      &:hover {
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 0.25rem;
+          background-color: $white;
+        }
+      }
+      &--active {
+        @include typography("Avenir Regular", 1.5rem, $white, 2rem, none, capitalize);
+      }
+    }
+    &__item {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      @include typography("Avenir Regular", 1.5rem, $mercury, 2rem, none, capitalize);
+      &--active {
+      @include typography("Avenir Demi", 1.5rem, $white, 2rem, none, capitalize);
+      position: relative;
+      align-items: center;
+      margin-right: 1.5rem;
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 0.25rem;
+        background-color: $white;
+      }
+      @include respond-to-min($tablet) {
+        position: relative;
+        align-items: center;
+        margin-right: 4rem;
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 0.25rem;
+          background-color: $white;
+        }
+      }
+    }
+    }
+  }
+}
