@@ -43,6 +43,8 @@
     margin-bottom: 1.5rem;
     @include typography("Avenir Demi", $text-lg, $black, 2rem, none, capitalize);
   }
+
+  /* IMAGE */
   &__figure {
     margin: 0;
     @include respond-to-min($tablet) {
@@ -68,6 +70,8 @@
       }
     }
   }
+
+  /* ARTICLE */
   &__content {
     margin-top: 2rem;
     @include respond-to-min($tablet) {
@@ -114,6 +118,8 @@
     padding: 2rem 0 1.5rem 0;
     @include typography("Avenir Demi", $text-xl, $black, 2rem, none, capitalize);
   }
+
+  /* IMAGEES */
   &__images {
     display: flex;
     flex-direction: column;
