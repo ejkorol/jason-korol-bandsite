@@ -23,23 +23,7 @@ $desktop: 1280px;
 /*            TYPEFACES           */
 /* ****************************** */
 
-/* FONT SIZES DESKTOP */
-$page-header: 3.75rem; // 60px
-$section-header: 2.25rem; // 36px
-$subheader: 1.5rem; // 24px
-$body-copy: 0.875rem; // 14px
-$footer-copy: 0.875rem; // 14px
-$labels-buttons: 0.75rem; // 12px
-
-/* FONT SIZES MOBILE */
-$page-header-mobile: 1.5rem; // 24px
-$section-header-mobile: 2.5rem; // 24px
-$subheader-mobile: 1.5rem; // 14px
-$body-copy-mobile: 1rem; // 13px
-$footer-copy-mobile: 1rem; // 13px
-$labels-buttons-mobile: 1rem; // 10px
-
-/* FONT WEIGHTS */
-$font-weight-regular: 400;
-$font-weight-demi: 600;
-$font-weight-bold: 700;
+$text-xl: 2.5rem;
+$text-lg: 2rem;
+$text-med: 1.5rem;
+$text-sm: 1rem;
