@@ -131,6 +131,12 @@ body, html {
     @include respond-to-min($tablet) {
       display: flex;
     }
+    &--mobile {
+      padding: 16px 16px;
+      @include respond-to-min($tablet) {
+        display: none;
+      }
+    }
   }
 }
 
@@ -138,6 +144,13 @@ body, html {
   &__header {
     margin: 0;
     @include typography("Avenir Demi", $section-header-mobile, $white, 2rem, none, capitalize);
+    &--tablet-desktop {
+      margin: 0;
+      @include typography("Avenir Demi", $section-header-mobile, $white, 2rem, none, capitalize);
+      @include respond-to-max($tablet) {
+        display: none;
+      }
+    }
   }
   &__subheader {
     margin: 1.5rem 0 1rem 0;
@@ -150,13 +163,18 @@ body, html {
   &__link {
     margin: 0;
     margin-top: 1rem;
-    @include typography("Avenir Regular", $footer-copy-mobile, $white, 1.5rem, none, capitalize);
+    @include typography("Avenir Regular", $footer-copy-mobile, $white, 1.5rem, none, none);
   }
   &__icons {
     margin-top: 1.5rem;
     display: flex;
     @include respond-to-min($tablet) {
       margin: 0;
+    }
+    &--tablet-desktop {
+      @include respond-to-max($tablet) {
+        display: none;
+      }
     }
   }
   &__icon {
@@ -166,15 +184,30 @@ body, html {
       height: 1.5rem;
     }
   }
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+  }
   &__item {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    @include respond-to-min($tablet) {
+      margin-right: 4rem;
+    }
     &--socials {
       @include respond-to-min($tablet) {
         width: 100%;
         display: flex;
         align-items: flex-end;
       }
+    }
+    &--right {
+      flex-grow: 1;
+      margin: 0;
     }
   }
   &__logo {
