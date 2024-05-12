@@ -128,8 +128,12 @@ body, html {
   padding: 1.5rem 0;
   &__section {
     padding: 16px 16px;
+    @include respond-to-min($tablet) {
+      display: flex;
+    }
   }
 }
+
 .footer-section {
   &__header {
     margin: 0;
@@ -151,14 +155,27 @@ body, html {
   &__icons {
     margin-top: 1.5rem;
     display: flex;
+    @include respond-to-min($tablet) {
+      margin: 0;
+    }
   }
   &__icon {
     height: 2.5rem;
     margin-right: 3rem;
+    @include respond-to-min($tablet) {
+      height: 1.5rem;
+    }
   }
   &__item {
     display: flex;
     flex-direction: column;
+    &--socials {
+      @include respond-to-min($tablet) {
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+      }
+    }
   }
   &__logo {
     @include respond-to-max($tablet) {
@@ -170,6 +187,18 @@ body, html {
       margin: 1.5rem 0 1rem 0;
       @include respond-to-min($tablet) {
         display: none;
+      }
+    }
+    &--tablet-desktop {
+      width: 10rem;
+      margin: 1.5rem 0 1rem 0;
+      @include respond-to-max($tablet) {
+        display: none;
+      }
+      @include respond-to-min($tablet) {
+        display: flex;
+        margin: 0;
+        margin-left: auto;
       }
     }
   }
