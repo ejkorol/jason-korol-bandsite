@@ -16,7 +16,7 @@
     justify-content: flex-start;
     align-items: center;
     height: 100%;
-    padding: 0 16px;
+    padding: 0 1rem;
     @include respond-to-min($tablet) {
       margin-left: 1.5rem;
     }
@@ -41,14 +41,14 @@
   &__header {
     margin: 0;
     padding: 0;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
     @include typography("Avenir Demi", $section-header-mobile, $black, 2rem, none, capitalize);
     @include respond-to-min($tablet) {
       margin-left: 1.5rem;
     }
   }
   &__container {
-    padding: 0 16px;
+    padding: 0 1rem;
     display: flex;
     flex-direction: column;
   }
@@ -63,7 +63,7 @@
   &__image {
     width: 100%;
     @include respond-to-min($tablet) {
-      height: 400px;
+      height: 25rem;
       margin-bottom: 1rem;
       margin-top: 2rem;
     }
@@ -105,7 +105,7 @@
   &__text {
     margin: 0;
     padding: 0;
-    margin-top: 16px;
+    margin-top: 1rem;
     @include typography("Avenir Regular", $body-copy-mobile, $black, 1.5rem, none, sentence);
   }
 }
@@ -115,8 +115,8 @@
 /* ****************************** */
 .gallery {
   background-color: $alabaster;
-  padding: 0 16px;
-  margin-top: 24px;
+  padding: 0 1rem;
+  margin-top: 1.5rem;
   @include respond-to-min($tablet) {
     margin-top: 4rem;
     padding: 2rem;
@@ -124,7 +124,7 @@
   &__header {
     margin: 0;
     padding: 0;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
     @include typography("Avenir Demi", $section-header-mobile, $black, 2rem, none, capitalize);
   }
   &__images {
@@ -138,7 +138,7 @@
   }
   &__image {
     width: 100%;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
     @include respond-to-min($tablet) {
       width: 31%;
       margin: 0;
