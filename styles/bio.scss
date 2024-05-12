@@ -114,6 +114,7 @@
 /*         GALLERY SECTION        */
 /* ****************************** */
 .gallery {
+  background-color: $alabaster;
   padding: 0 16px;
   margin-top: 24px;
   @include respond-to-min($tablet) {
