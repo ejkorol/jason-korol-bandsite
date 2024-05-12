@@ -7,10 +7,19 @@
 .footer {
   background-color: $black;
   padding: 2rem 0;
+  @include respond-to-min($tablet) {
+    padding-bottom: 4rem;
+  }
   &__section {
     padding: 1rem 2rem;
+    align-items: flex-end;
     @include respond-to-min($tablet) {
       display: flex;
+      padding: 2rem 4rem 0 4rem;
+      gap: 5%;
+    }
+    @include respond-to-max(815px) { // overflow fix
+      gap: 1%;
     }
     &--mobile {
       padding: 1rem 2rem;
@@ -30,19 +39,15 @@
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
-    @include respond-to-min($tablet) {
-      margin-right: 4rem;
-    }
     &--socials {
       @include respond-to-min($tablet) {
-        width: 100%;
         display: flex;
         align-items: flex-end;
       }
     }
     &--right {
+      margin-right: 0;
       flex-grow: 1;
-      margin: 0;
     }
   }
   &__wrapper {
@@ -50,6 +55,7 @@
     flex-direction: column;
     justify-content: flex-end;
     height: 100%;
+    white-space: nowrap;
     @include respond-to-min($tablet) {
       margin-bottom: 2rem;
     }
@@ -64,6 +70,9 @@
       @include typography("Avenir Demi", $text-xl, $white, 2rem, none, capitalize);
       @include respond-to-max($tablet) {
         display: none;
+      }
+      @include respond-to-min($tablet) {
+        display: flex;
       }
     }
   }
@@ -81,26 +90,35 @@
   &__link {
     margin: 1rem 0;
     @include typography("Avenir Regular", $text-sm, $white, 1.5rem, none, none);
+    @include respond-to-min($tablet) {
+      margin: 2rem 0 0 0;
+    }
   }
 
   /* FOOTER ICONS */
   &__icons {
+    height: 100%;
     margin-top: 2rem;
     display: flex;
+    gap: 2.5rem;
     @include respond-to-min($tablet) {
       margin: 0;
     }
     &--tablet-desktop {
+      display: flex;
+      gap: 2.5rem;
       @include respond-to-max($tablet) {
         display: none;
+      }
+      @include respond-to-min($tablet) {
+        display: flex;
       }
     }
   }
   &__icon {
     height: 2.5rem;
-    margin-right: 3rem;
     @include respond-to-min($tablet) {
-      height: 1.5rem;
+      height: 1.75rem;
     }
   }
 
@@ -117,8 +135,7 @@
       }
     }
     &--tablet-desktop {
-      width: 10rem;
-      margin: 1.5rem 0 1rem 0;
+      height: 1.5rem;
       @include respond-to-max($tablet) {
         display: none;
       }
