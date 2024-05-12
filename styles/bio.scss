@@ -20,6 +20,9 @@
     @include respond-to-min($tablet) {
       padding: 0 4rem;
     }
+    @include respond-to-min($desktop) {
+      padding: 0 8rem;
+    }
   }
   &__header {
     margin: 0;
@@ -48,6 +51,9 @@
     @include respond-to-min($tablet) {
       padding: 0 4rem;
     }
+    @include respond-to-min($desktop) {
+      padding: 0 8rem;
+    }
   }
   &__header {
     margin: 0;
@@ -68,6 +74,9 @@
       flex-direction: column;
       padding: 0 4rem;
     }
+    @include respond-to-min($desktop) {
+      padding: 0 8rem;
+    }
   }
   &__image {
     width: 100%;
@@ -84,11 +93,17 @@
       @include respond-to-min($tablet) {
         @include typography("Avenir Demi", $text-lg, $black, 2.75rem, none, sentence);
       }
+      @include respond-to-min($desktop) {
+        @include typography("Avenir Demi", $text-med, $black, 2.5rem, none, sentence);
+      }
     }
     &--subheader {
       @include typography("Avenir Demi", $text-med, $black, 4rem, none, sentence);
       @include respond-to-min($tablet) {
         @include typography("Avenir Demi", $text-med, $black, 5rem, none, sentence);
+      }
+      @include respond-to-min($desktop) {
+        @include typography("Avenir Demi", $text-sm, $black, 2.5rem, none, sentence);
       }
     }
   }
@@ -100,6 +115,9 @@
       padding: 0 4rem;
       margin-top: 3rem;
     }
+    @include respond-to-min($desktop) {
+      padding: 0 8rem;
+    }
   }
   &__subheader {
     margin: 0;
@@ -107,6 +125,9 @@
     @include typography("Avenir Regular", $text-med, $black, 1.375rem, none, capitalize);
     @include respond-to-min($tablet) {
       @include typography("Avenir Demi", $text-lg, $black, $text-lg, none, sentence);
+    }
+    @include respond-to-min($desktop) {
+      @include typography("Avenir Regular", $text-med, $black, $text-lg, none, sentence);
     }
   }
   &__text-wrapper {
@@ -136,6 +157,9 @@
   margin-top: 2rem;
   @include respond-to-min($tablet) {
     padding: 2rem 4rem;
+  }
+  @include respond-to-min($desktop) {
+    padding: 2rem 8rem;
   }
   &__header {
     margin: 0;

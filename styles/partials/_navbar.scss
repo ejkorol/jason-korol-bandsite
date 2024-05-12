@@ -18,6 +18,9 @@
       align-items: flex-end;
       padding: 0 4rem;
     }
+    @include respond-to-min($desktop) {
+      padding: 0 8rem;
+    }
 
     /* LOGOS */
     &__brand {

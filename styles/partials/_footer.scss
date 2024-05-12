@@ -10,6 +10,8 @@
   @include respond-to-min($tablet) {
     padding-bottom: 4rem;
   }
+
+  /* CONTAINER */
   &__section {
     padding: 1rem 2rem;
     align-items: flex-end;
@@ -18,7 +20,10 @@
       padding: 2rem 4rem 0 4rem;
       gap: 5%;
     }
-    @include respond-to-max(815px) { // overflow fix
+    @include respond-to-min($desktop) {
+      padding: 2rem 8rem 0 8rem;
+    }
+    @include respond-to-max(815px) { // <= overflow fix
       gap: 1%;
     }
     &--mobile {
