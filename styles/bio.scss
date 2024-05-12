@@ -10,6 +10,9 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  @include respond-to-min($desktop) {
+    height: 40vh;
+  }
   height: 30vh;
   &__container {
     display: flex;
