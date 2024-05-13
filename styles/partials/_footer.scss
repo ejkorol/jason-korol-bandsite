@@ -57,12 +57,6 @@
     flex-direction: column;
     height: 100%;
     justify-content: space-between;
-    &--socials {
-      @include respond-to-min($tablet) {
-        display: flex;
-        align-items: flex-end;
-      }
-    }
     &--right {
       margin-right: 0;
       flex-grow: 1;
@@ -74,32 +68,18 @@
     justify-content: flex-end;
     height: 100%;
     white-space: nowrap;
-    @include respond-to-min($tablet) {
-      margin-bottom: 2rem;
-    }
   }
-
-  /* FOOTER TYPOGRAPHY */
   &__header {
     margin: 0;
     @include typography("Avenir Demi", $text-xl, $white, 2rem, none, capitalize);
     &--tablet-desktop {
       margin: 0;
       @include typography("Avenir Demi", $text-xl, $white, 2rem, none, capitalize);
-      @include respond-to-max($tablet) {
-        display: none;
-      }
-      @include respond-to-min($tablet) {
-        display: flex;
-      }
     }
   }
   &__subheader {
     margin: 2rem 0;
     @include typography("Avenir Demi", $text-med, $white, 1.5rem, none, capitalize);
-    @include respond-to-min($tablet) {
-      @include typography("Avenir Demi", $text-sm, $white, 1rem, none, capitalize);
-    }
   }
   &__text {
     margin: 0;
@@ -108,9 +88,6 @@
   &__link {
     margin: 1rem 0;
     @include typography("Avenir Regular", $text-sm, $white, 1.5rem, none, none);
-    @include respond-to-min($tablet) {
-      margin: 2rem 0 0 0;
-    }
   }
 
   /* FOOTER ICONS */
@@ -119,48 +96,90 @@
     margin-top: 2rem;
     display: flex;
     gap: 2.5rem;
-    @include respond-to-min($tablet) {
-      margin: 0;
-    }
     &--tablet-desktop {
       display: flex;
       gap: 2.5rem;
-      @include respond-to-max($tablet) {
-        display: none;
-      }
-      @include respond-to-min($tablet) {
-        display: flex;
-      }
     }
   }
   &__icon {
     height: 2.5rem;
-    @include respond-to-min($tablet) {
-      height: 1.75rem;
-    }
   }
 
   /* FOOTER LOGO */
   &__logo {
-    @include respond-to-max($tablet) {
-      display: none;
-    }
     &--mobile {
       width: 10rem;
       margin: 1.5rem 0 1rem 0;
-      @include respond-to-min($tablet) {
-        display: none;
-      }
     }
     &--tablet-desktop {
       height: 1.5rem;
-      @include respond-to-max($tablet) {
+    }
+  }
+}
+
+/* FOOTER SECTIONS TABLET */
+@include respond-to-min($tablet) {
+  .footer-section {
+    &__item {
+      &--socials {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+    &__wrapper {
+      margin-bottom: 2rem;
+    }
+    &__header {
+      display: flex;
+      &--tablet-desktop {
+        display: flex;
+      }
+    }
+    &__subheader {
+      font-size: $text-sm;
+      line-height: 1rem;
+    }
+    &__link {
+      margin: 2rem 0 0 0;
+    }
+    &__icons {
+      margin: 0;
+      &--tablet-desktop {
+        display: flex;
+      }
+    }
+    &__icon {
+      height: 1.75rem;
+    }
+    &__logo {
+      &--mobile {
         display: none;
       }
-      @include respond-to-min($tablet) {
+      &--tablet-desktop {
         display: flex;
         margin: 0;
         margin-left: auto;
+      }
+    }
+  }
+}
+
+@include respond-to-max($tablet) {
+  .footer-section {
+    &__header {
+      &--tablet-desktop {
+        display: none;
+      }
+    }
+    &__icons {
+      &--tablet-desktop {
+        display: none;
+      }
+    }
+    &__logo {
+      display: none;
+      &--tablet-desktop {
+        display: none;
       }
     }
   }
