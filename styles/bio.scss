@@ -174,7 +174,7 @@
     }
   }
 
-  /* IMAGEES */
+  /* IMAGES */
   &__images {
     display: flex;
     flex-direction: column;
@@ -187,10 +187,18 @@
   &__image {
     width: 100%;
     margin-bottom: 1.5rem;
+    cursor: pointer;
     @include respond-to-min($tablet) {
       width: 31%;
       margin: 0;
       margin-bottom: 2rem;
     };
+    filter: grayscale(80%);
+    transition: filter 0.3s ease;
+    transition: transform 0.3s ease;
+    &:hover {
+      filter: grayscale(0%);
+      transform: scale(1.1);
+    }
   }
 }
