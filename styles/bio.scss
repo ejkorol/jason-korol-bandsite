@@ -52,113 +52,124 @@
 /* ****************************** */
 /*         ABOUT SECTION          */
 /* ****************************** */
+
+/* ABOUT MOBILE */
 .about {
   display: flex;
   flex-direction: column;
   margin-top: 2rem;
-  @include respond-to-min($tablet) {
-    margin-top: 4rem;
-  }
   &__container {
     padding: 0 1.5rem;
     display: flex;
     flex-direction: column;
-    @include respond-to-min($tablet) {
-      padding: 0 4rem;
-    }
-    @include respond-to-min($desktop) {
-      padding: 0 8rem;
-    }
   }
   &__header {
     margin: 0;
     padding: 0;
     margin-bottom: 1.5rem;
     @include typography("Avenir Demi", $text-lg, $black, 2rem, none, capitalize);
-    @include respond-to-min($tablet) {
-      @include typography("Avenir Demi", $text-xl, $black, 2rem, none, capitalize);
-      margin-bottom: 3rem;
-    }
   }
 
-  /* IMAGE */
   &__figure {
     margin: 0;
-    @include respond-to-min($tablet) {
-      display: flex;
-      flex-direction: column;
-      padding: 0 4rem;
-    }
-    @include respond-to-min($desktop) {
-      padding: 0 8rem;
-    }
   }
   &__image {
     width: 100%;
-    @include respond-to-min($tablet) {
-    }
   }
   &__caption {
     margin-top: 1.5rem;
-    @include respond-to-min($tablet) {
-      margin-top: 2rem;
-    }
     &--header {
       @include typography("Avenir Demi", $text-med, $black, 2.5rem, none, sentence);
-      @include respond-to-min($tablet) {
-        @include typography("Avenir Demi", $text-lg, $black, 2.75rem, none, sentence);
-      }
-      @include respond-to-min($desktop) {
-        @include typography("Avenir Demi", $text-med, $black, 2.5rem, none, sentence);
-      }
     }
     &--subheader {
       @include typography("Avenir Demi", $text-med, $black, 4rem, none, sentence);
-      @include respond-to-min($tablet) {
-        @include typography("Avenir Demi", $text-med, $black, 5rem, none, sentence);
-      }
-      @include respond-to-min($desktop) {
-        @include typography("Avenir Demi", $text-sm, $black, 2.5rem, none, sentence);
-      }
     }
   }
 
-  /* ARTICLE */
   &__content {
     margin-top: 2rem;
-    @include respond-to-min($tablet) {
-      padding: 0 4rem;
-      margin-top: 3rem;
-    }
-    @include respond-to-min($desktop) {
-      padding: 0 8rem;
-    }
   }
   &__subheader {
     margin: 0;
     padding: 0;
     @include typography("Avenir Regular", $text-med, $black, 1.375rem, none, capitalize);
-    @include respond-to-min($tablet) {
-      @include typography("Avenir Demi", $text-lg, $black, $text-lg, none, sentence);
-    }
-    @include respond-to-min($desktop) {
-      @include typography("Avenir Regular", $text-med, $black, $text-lg, none, sentence);
-    }
-  }
-  &__text-wrapper {
-    @include respond-to-min($tablet) {
-      margin-top: 0.5rem;
-      display: flex;
-      gap: 2rem;
-    }
   }
   &__text {
     margin: 0;
     padding: 0;
     margin-top: 1.5rem;
     @include typography("Avenir Regular", $text-sm, $black, 1.5rem, none, sentence);
-    @include respond-to-min($tablet) {
-      @include typography("Avenir Regular", $text-sm, $black, 1.75rem, none, sentence);
+  }
+}
+
+/* ABOUT TABLET */
+@include respond-to-min($tablet) {
+  .about {
+    margin-top: 4rem;
+    &__container {
+      padding: 0 4rem;
+    }
+    &__header {
+      font-size: $text-xl;
+      margin-bottom: 3rem;
+    }
+
+    &__figure {
+      display: flex;
+      flex-direction: column;
+      padding: 0 4rem;
+    }
+    &__caption {
+      margin-top: 2rem;
+      &--header {
+        font-size: $text-lg;
+        line-height: 2.75rem;
+      }
+      &--subheader {
+        line-height: 5rem;
+      }
+    }
+
+    &__content {
+      padding: 0 4rem;
+      margin-top: 3rem;
+    }
+    &__subheader {
+      @include typography("Avenir Demi", $text-lg, $black, $text-lg, none, sentence);
+    }
+    &__text-wrapper {
+      margin-top: 0.5rem;
+      display: flex;
+      gap: 2rem;
+    }
+    &__text {
+      line-height: 1.75rem;
+    }
+  }
+}
+
+/* ABOUT DESKTOP */
+@include respond-to-min($desktop) {
+  .about {
+    &__container {
+      padding: 0 8rem;
+    }
+
+    &__figure {
+      padding: 0 8rem;
+    }
+    &__caption {
+      &--subheader {
+        font-size: $text-sm;
+        line-height: 2.5rem;
+      }
+    }
+
+    &__content {
+      padding: 0 8rem;
+    }
+    &__subheader {
+      @include typography("Avenir Regular", $text-med, $black, $text-lg, none, sentence);
     }
   }
 }
