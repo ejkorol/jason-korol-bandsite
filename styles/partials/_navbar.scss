@@ -61,36 +61,17 @@
       width: 100%;
       height: 100%;
       align-items: center;
-      &--active {
       @include typography("Avenir Demi", $text-med, $white, 2rem, none, capitalize);
       position: relative;
       align-items: center;
-      margin-right: 1.5rem;
-      &:after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 0.25rem;
-        background-color: $white;
-      }
       @include respond-to-min($tablet) {
         position: relative;
         align-items: center;
         margin-right: 4rem;
-        &:after {
-          content: "";
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          width: 100%;
-          height: 0.25rem;
-          background-color: $white;
-        }
       }
     }
-    }
+
+    /* LINK */
     &__link {
       display: flex;
       justify-content: center;
@@ -100,6 +81,16 @@
       width: 100%;
       margin: 0;
       @include typography("Avenir Regular", $text-med, $mercury, 2rem, none, capitalize);
+      &:after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 0.25rem;
+        background-color: $white;
+        transition: width 0.3s ease, left 0.3s ease;
+      }
       &:hover {
         &:after {
           content: "";
@@ -113,6 +104,19 @@
       }
       &--active {
         @include typography("Avenir Regular", $text-med, $white, 2rem, none, capitalize);
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 0.25rem;
+          background-color: $white;
+        }
+      }
+      &--brand {
+        display: flex;
+        align-items: center;
       }
     }
   }
