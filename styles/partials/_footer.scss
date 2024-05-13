@@ -4,33 +4,46 @@
 /* ****************************** */
 /*           MAIN FOOTER          */
 /* ****************************** */
+
+/* MAIN FOOTER MOBILE */
 .footer {
   background-color: $black;
   padding: 2rem 0;
-  @include respond-to-min($tablet) {
-    padding-bottom: 4rem;
-  }
 
-  /* CONTAINER */
   &__section {
     padding: 1rem 2rem;
     align-items: flex-end;
-    @include respond-to-min($tablet) {
-      display: flex;
-      padding: 2rem 4rem 0 4rem;
-      gap: 5%;
-    }
-    @include respond-to-min($desktop) {
-      padding: 2rem 8rem 0 8rem;
-    }
-    @include respond-to-max(815px) { // <= overflow fix
+    @include respond-to-max(815px) {
       gap: 1%;
     }
     &--mobile {
       padding: 1rem 2rem;
-      @include respond-to-min($tablet) {
+    }
+  }
+}
+
+/* MAIN FOOTER TABLET */
+@include respond-to-min($tablet) {
+  .footer {
+    padding-bottom: 4rem;
+
+    &__section {
+      display: flex;
+      padding: 2rem 4rem 0 4rem;
+      gap: 5%;
+
+      &--mobile {
         display: none;
       }
+    }
+  }
+}
+
+/* MAIN FOOTER TABLET */
+@include respond-to-min($desktop) {
+  .footer {
+    &__section {
+      padding: 2rem 8rem 0 8rem;
     }
   }
 }
