@@ -92,7 +92,6 @@
     @include typography("Avenir Regular", $text-sm, $white, 1.5rem, none, none);
   }
 
-  /* FOOTER ICONS */
   &__icons {
     height: 100%;
     margin-top: 2rem;
@@ -107,7 +106,6 @@
     height: 2.5rem;
   }
 
-  /* FOOTER LOGO */
   &__logo {
     &--mobile {
       width: 10rem;
@@ -166,7 +164,7 @@
   }
 }
 
-@include respond-to-max($tablet) {
+@include respond-to-max(766px) {
   .footer-section {
     &__header {
       &--tablet-desktop {
