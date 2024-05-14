@@ -178,6 +178,17 @@
 /*         GALLERY SECTION        */
 /* ****************************** */
 
+/* IMAGE ANIMATION */
+%image-animation {
+  filter: grayscale(80%);
+  transition: filter 0.3s ease; // gray overlay
+  transition: transform 0.3s ease; // scale the image
+  &:hover {
+    filter: grayscale(0%);
+    transform: scale(1.1);
+  }
+}
+
 /* GALLERY MOBILE */
 .gallery {
   background-color: $alabaster;
@@ -197,13 +208,7 @@
     width: 100%;
     margin-bottom: 1.5rem;
     cursor: pointer;
-    filter: grayscale(80%);
-    transition: filter 0.3s ease;
-    transition: transform 0.3s ease;
-    &:hover {
-      filter: grayscale(0%);
-      transform: scale(1.1);
-    }
+    @extend %image-animation;
   }
 }
 
