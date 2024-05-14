@@ -1,50 +1,30 @@
 @use "./mixins" as *;
 @use "./variables" as *;
 
+/* ****************************** */
+/*              HEADER            */
+/* ****************************** */
+
+/* HEADER MOBILE */
 .header {
   background-color: $black;
   height: 8.75rem;
-  @include respond-to-min($tablet) {
-    height: 6rem;
-  }
   .navbar {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    @include respond-to-min($tablet) {
-      flex-direction: row;
-      justify-content: flex-start;
-      align-items: flex-end;
-      padding: 0 4rem;
-    }
-    @include respond-to-min($desktop) {
-      padding: 0 8rem;
-    }
-
-    /* LOGOS */
     &__brand {
       height: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
-      @include respond-to-min($tablet) {
-      }
     }
     &__logo {
       height: 2rem;
-      @include respond-to-min($tablet) {
-        height: 1.5rem;
-      }
     }
-
-    /* MENU */
     &__menu {
       height: 80%;
-      @include respond-to-min($tablet) {
-        height: 100%;
-        margin-left: 4rem;
-      }
     }
     &__list {
       display: flex;
@@ -64,14 +44,7 @@
       @include typography("Avenir Demi", $text-med, $white, 2rem, none, capitalize);
       position: relative;
       align-items: center;
-      @include respond-to-min($tablet) {
-        position: relative;
-        align-items: center;
-        margin-right: 4rem;
-      }
     }
-
-    /* LINK */
     &__link {
       display: flex;
       justify-content: center;
@@ -118,6 +91,40 @@
         display: flex;
         align-items: center;
       }
+    }
+  }
+}
+
+/* HEADER TABLET */
+@include respond-to-min($tablet) {
+  .header {
+    height: 6rem;
+    .navbar {
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: flex-end;
+      padding: 0 4rem;
+      &__logo {
+        height: 1.5rem;
+      }
+      &__menu {
+        height: 100%;
+        margin-left: 4rem;
+      }
+      &__item {
+        position: relative;
+        align-items: center;
+        margin-right: 4rem;
+      }
+    }
+  }
+}
+
+/* HEADER DESKTOP */
+@include respond-to-min($desktop) {
+  .header {
+    .navbar {
+      padding: 0 8rem;
     }
   }
 }
