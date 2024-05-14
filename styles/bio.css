@@ -220,10 +220,6 @@
 /*         FOOTER SECTIONS        */
 /* ****************************** */
 /* FOOTER MOBILE */
-.footer-section {
-  /* FOOTER ICONS */
-  /* FOOTER LOGO */
-}
 .footer-section__item {
   display: flex;
   flex-direction: column;
@@ -347,7 +343,7 @@
     margin-left: auto;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 766px) {
   .footer-section__header--tablet-desktop {
     display: none;
   }
