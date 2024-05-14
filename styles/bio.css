@@ -396,6 +396,9 @@ body, html {
 
 /* HERO TABLET */
 @media (min-width: 767px) {
+  .hero {
+    height: 70vh;
+  }
   .hero__container {
     padding: 0 4rem;
   }
@@ -406,7 +409,7 @@ body, html {
 /* HERO DESKTOP */
 @media (min-width: 1280px) {
   .hero {
-    height: 40vh;
+    height: 70vh;
   }
   .hero__container {
     padding: 0 8rem;
