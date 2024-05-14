@@ -30,6 +30,7 @@
 /* HERO TABLET */
 @include respond-to-min($tablet) {
   .hero {
+    height: 70vh;
     &__container {
       padding: 0 4rem;
     }
@@ -42,7 +43,7 @@
 /* HERO DESKTOP */
 @include respond-to-min($desktop) {
   .hero {
-    height: 40vh;
+    height: 70vh;
     &__container {
       padding: 0 8rem;
     }
