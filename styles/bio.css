@@ -567,9 +567,8 @@ body, html {
 /* ****************************** */
 /* IMAGE ANIMATION */
 .gallery__image {
-  filter: grayscale(80%);
-  transition: filter 0.3s ease;
-  transition: transform 0.3s ease;
+  filter: grayscale(70%);
+  transition: 0.3s ease;
 }
 .gallery__image:hover {
   filter: grayscale(0%);
