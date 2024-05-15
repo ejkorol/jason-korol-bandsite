@@ -10,3 +10,51 @@ body, html {
   margin: 0;
   padding: 0;
 }
+
+/* ****************************** */
+/*              HERO              */
+/* ****************************** */
+
+/* HERO MOBILE */
+.hero {
+  background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../../assets/images/hero-bio.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 30vh;
+  &__container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    padding: 0 1.5rem;
+  }
+  &__header {
+    margin: 0;
+    padding: 0;
+    @include typography("Avenir Demi", $text-lg, $white, 2rem, none, capitalize);
+  }
+}
+
+/* HERO TABLET */
+@include respond-to-min($tablet) {
+  .hero {
+    height: 70vh;
+    &__container {
+      padding: 0 4rem;
+    }
+    &__header {
+      font-size: $text-xxl;
+    }
+  }
+}
+
+/* HERO DESKTOP */
+@include respond-to-min($desktop) {
+  .hero {
+    height: 70vh;
+    &__container {
+      padding: 0 8rem;
+    }
+  }
+}
