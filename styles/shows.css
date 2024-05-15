@@ -358,11 +358,108 @@
   }
 }
 /* ****************************** */
-/*            BODY HTML           */
+/*             RESETS             */
 /* ****************************** */
+/* BODY+HTML */
 body, html {
   margin: 0;
   padding: 0;
+}
+
+/* ****************************** */
+/*              HERO              */
+/* ****************************** */
+/* HERO MOBILE */
+.hero--bio {
+  background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../../assets/images/hero-bio.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 50vh;
+}
+.hero--shows {
+  background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../../assets/images/hero-shows.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.hero__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 2.5rem 1.5rem;
+}
+.hero__container--bio {
+  padding: 0 1.5rem;
+}
+.hero__subheader {
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Regular";
+  font-size: 1.5rem;
+  color: #FFFFFF;
+  line-height: 4.5rem;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+.hero__header {
+  margin: 0;
+  padding: 0;
+  font-family: "Avenir Demi";
+  font-size: 2rem;
+  color: #FFFFFF;
+  line-height: 2.5rem;
+  text-decoration: none;
+  text-transform: capitalize;
+  width: 65%;
+}
+.hero__header--collab-key {
+  text-transform: none;
+}
+.hero__music-player {
+  margin-top: 2.5rem;
+}
+
+/* HERO TABLET */
+@media (min-width: 767px) {
+  .hero {
+    height: 80vh;
+  }
+  .hero__container {
+    padding: 0 4rem;
+  }
+  .hero__subheader {
+    font-family: "Avenir Demi";
+  }
+  .hero__header {
+    font-size: 4.5rem;
+    line-height: 5.5rem;
+    width: 66%;
+  }
+  .hero__music-player {
+    width: 66%;
+  }
+}
+/* HERO DESKTOP */
+@media (min-width: 1280px) {
+  .hero {
+    height: 80vh;
+  }
+  .hero__container {
+    padding: 0 8rem;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 6rem;
+  }
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero__header {
+    width: 100%;
+  }
 }
 
 /*# sourceMappingURL=shows.css.map */
