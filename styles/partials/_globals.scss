@@ -19,12 +19,12 @@ body, html {
 
 /* HERO MOBILE */
 .hero {
-  height: 30vh;
   &--bio {
     background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../../assets/images/hero-bio.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    height: 50vh;
   }
   &--shows {
     background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../../assets/images/hero-shows.jpg");
@@ -34,28 +34,50 @@ body, html {
   }
   &__container {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
-    padding: 0 1.5rem;
+    padding: 2.5rem 1.5rem;
+    &--bio {
+      padding: 0 1.5rem;
+    }
+  }
+  &__subheader {
+    margin: 0;
+    padding: 0;
+    @include typography("Avenir Regular", $text-med, $white, $text-xxl, none, capitalize);
   }
   &__header {
     margin: 0;
     padding: 0;
-    @include typography("Avenir Demi", $text-lg, $white, $text-xxl, none, none);
-    width: 55%;
+    @include typography("Avenir Demi", $text-lg, $white, $text-xl, none, capitalize);
+    width: 65%;
+    &--collab-key {
+      text-transform: none;
+    };
+  }
+  &__music-player {
+    margin-top: 2.5rem;
   }
 }
 
 /* HERO TABLET */
 @include respond-to-min($tablet) {
   .hero {
-    height: 70vh;
+    height: 80vh;
     &__container {
       padding: 0 4rem;
     }
+    &__subheader {
+      font-family: "Avenir Demi";
+    }
     &__header {
       font-size: $text-xxl;
+      line-height: 5.5rem;
+      width: 66%;
+    }
+    &__music-player {
+      width: 66%;
     }
   }
 }
@@ -63,9 +85,20 @@ body, html {
 /* HERO DESKTOP */
 @include respond-to-min($desktop) {
   .hero {
-    height: 70vh;
+    height: 80vh;
     &__container {
       padding: 0 8rem;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 6rem;
+    }
+    &__content {
+      display: flex;
+      flex-direction: column;
+    }
+    &__header {
+      width: 100%;
     }
   }
 }
