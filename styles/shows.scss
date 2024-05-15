@@ -2,4 +2,141 @@
 @use "./partials/variables" as *;
 @use "./partials/globals";
 
+/* ****************************** */
+/*         SHOWS SECTION          */
+/* ****************************** */
 
+/* SHOWS SECTION MOBILE */
+.shows {
+  margin: 2rem 0;
+  &__left {
+    padding: 0 1.5rem;
+    margin-bottom: 2rem;
+  }
+  &__header {
+    @include typography("Avenir Demi", $text-lg, $black, 2rem, none, capitalize);
+    margin: 0;
+  }
+  &__nav {
+    display: none;
+  }
+}
+
+/* SHOWS SECTION TABLET */
+@include respond-to-min($tablet) {
+  .shows {
+    &__left {
+      padding: 0 4rem;
+    }
+    &__nav {
+      display: flex;
+      padding: 0 4rem;
+      margin-top: 2rem;
+    }
+    &__item {
+      width: 25%;
+    }
+    &__text {
+      @include typography("Avenir Demi", $text-xs, $silver, 2rem, none, uppercase);
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+/* SHOWS SECTION DESKTOP */
+@include respond-to-min($desktop) {
+  .shows {
+    padding: 0 8rem;
+    display: flex;
+    gap: 4rem;
+    &__left {
+      margin: 0;
+      padding: 0;
+      width: 25%;
+    }
+    &__nav {
+      margin: 0;
+      padding: 0;
+    }
+    &__right {
+      flex-grow: 1;
+    }
+  }
+}
+
+/* ****************************** */
+/*         SHOWS ARTICLES         */
+/* ****************************** */
+
+/* SHOW ARTICLE MOBILE */
+.show {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  border-bottom: solid 1px $mercury;
+  &__venue {
+    margin: 1rem 0;
+  }
+  &__text {
+    @include typography("Avenir Regular", $text-sm, $black, 2rem, none, capitalize);
+    margin: 0;
+    padding: 0;
+    &--helper {
+      @include typography("Avenir Demi", $text-xs, $silver, 2rem, none, uppercase);
+      margin: 0;
+      padding: 0;
+    }
+    &--bold {
+      @include typography("Avenir Demi", $text-sm, $black, 2rem, none, capitalize);
+      margin: 0;
+      padding: 0;
+    }
+  }
+  &__button-container {
+    width: 100%;
+    margin: 1rem 0;
+  }
+  &__button {
+    width: 100%;
+    background-color: $black;
+    border-style: none;
+    border-radius: 4px;
+    padding: 0.5rem 2rem;
+    @include typography("Avenir Demi", $text-sm, $white, 2rem, none, uppercase);
+    letter-spacing: 0.05rem;
+  }
+}
+
+/* SHOW ARTICLE TABLET */
+@include respond-to-min($tablet) {
+  .show {
+    padding: 0.5rem 4rem 0.5rem 4rem;
+    flex-direction: row;
+    align-items: center;
+    &__date {
+      width: 25%;
+    }
+    &__venue {
+      width: 25%;
+    }
+    &__location {
+      width: 25%;
+    }
+    &__button-container {
+      width: 25%;
+    }
+    &__text {
+      &--helper {
+        display: none;
+      }
+    }
+  }
+}
+
+/* SHOW ARTICLE DESKTOP */
+@include respond-to-min($desktop) {
+  .show {
+    padding: 0;
+  }
+}
