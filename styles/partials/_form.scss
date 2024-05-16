@@ -59,3 +59,13 @@
     @extend %button;
   }
 }
+
+/* FORM TABLET */
+@include respond-to-min($tablet) {
+  .comment-form {
+    &__button {
+      margin-left: auto;
+      width: 9.5rem;
+    }
+  }
+}
