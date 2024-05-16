@@ -25,6 +25,9 @@
 /* SHOWS SECTION TABLET */
 @include respond-to-min($tablet) {
   .shows {
+    &__header {
+      font-size: $text-xl;
+    }
     &__left {
       padding: 0 4rem;
     }
