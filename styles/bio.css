@@ -780,6 +780,9 @@ body, html {
   .comments {
     padding: 2rem 4rem;
   }
+  .comments__header {
+    font-size: 2.5rem;
+  }
   .comments__form-wrapper {
     padding: 1.5rem 4rem;
   }
