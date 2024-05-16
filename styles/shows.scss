@@ -3,6 +3,37 @@
 @use "./partials/globals";
 
 /* ****************************** */
+/*           INPUT STYLE          */
+/* ****************************** */
+
+/* ARTICLE HOVER */
+%article-hover {
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    background-color: $alabaster;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  }
+}
+
+/* BUTTONS */
+%button {
+  cursor: pointer;
+  width: 100%;
+  background-color: $black;
+  border-style: none;
+  border-radius: 4px;
+  padding: 0.5rem 2rem;
+  @include typography("Avenir Demi", $text-sm, $white, 2rem, none, uppercase);
+  letter-spacing: 0.05rem;
+  transition: 0.3s;
+  &:hover {
+    background-color: $dark-black;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+}
+
+/* ****************************** */
 /*         SHOWS SECTION          */
 /* ****************************** */
 
@@ -78,6 +109,7 @@
   flex-direction: column;
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   border-bottom: solid 1px $mercury;
+  @extend %article-hover;
   &__venue {
     margin: 1rem 0;
   }
@@ -101,13 +133,7 @@
     margin: 1rem 0;
   }
   &__button {
-    width: 100%;
-    background-color: $black;
-    border-style: none;
-    border-radius: 4px;
-    padding: 0.5rem 2rem;
-    @include typography("Avenir Demi", $text-sm, $white, 2rem, none, uppercase);
-    letter-spacing: 0.05rem;
+    @extend %button;
   }
 }
 

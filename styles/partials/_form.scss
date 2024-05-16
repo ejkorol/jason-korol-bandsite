@@ -26,6 +26,7 @@
 
 /* BUTTONS */
 %button {
+  cursor: pointer;
   width: 100%;
   background-color: $black;
   border-style: none;
@@ -33,6 +34,11 @@
   padding: 0.5rem 2rem;
   @include typography("Avenir Demi", $text-sm, $white, 2rem, none, uppercase);
   letter-spacing: 0.05rem;
+  transition: 0.3s;
+  &:hover {
+    background-color: $dark-black;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
 }
 
 /* ****************************** */
