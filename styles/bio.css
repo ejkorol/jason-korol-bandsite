@@ -486,6 +486,7 @@ body, html {
 }
 /* BUTTONS */
 .comment-form__button {
+  cursor: pointer;
   width: 100%;
   background-color: #323232;
   border-style: none;
@@ -498,6 +499,11 @@ body, html {
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 0.05rem;
+  transition: 0.3s;
+}
+.comment-form__button:hover {
+  background-color: #000000;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 /* ****************************** */
