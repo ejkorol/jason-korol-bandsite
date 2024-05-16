@@ -203,13 +203,25 @@
   &__header {
     margin: 0;
     padding: 0;
-    @include typography("Avenir Demi", $text-lg, $black, 2rem, none, capitalize);
+    @include typography("Avenir Demi", $text-lg, $black, 2rem, none, none);
   }
   &__image {
     width: 48px;
     height: 48px;
     object-fit: cover;
     border-radius: 50%;
+  }
+  &__form-wrapper {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: solid 1px $mercury;
+  }
+  &__left {
+    padding-top: 2rem;
+  }
+  &__right {
+    flex-grow: 1;
   }
 }
 
