@@ -229,6 +229,9 @@
 @include respond-to-min($tablet) {
   .comments {
     padding: 2rem 4rem;
+    &__header {
+      font-size: $text-xl;
+    }
     &__form-wrapper {
       padding: 1.5rem 4rem;
     }
