@@ -1,2 +1,61 @@
 @use "./_variables.scss" as *;
 @use "./_mixins.scss" as *;
+
+/* ****************************** */
+/*           INPUT STYLE          */
+/* ****************************** */
+
+/* INPUT */
+%input-style {
+  background-color: $alabaster;
+  border: solid 1px $mercury;
+  border-radius: 4px;
+  padding: 0.75rem;
+  transition: 0.5s;
+  outline-color: initial;
+  &::placeholder {
+    @include typography("Avenir Regular", $text-sm, $black, 2rem, none, none);
+  }
+  &:focus {
+    outline-color: $silver;
+  }
+  &--error {
+    outline-color: red;
+  }
+}
+
+/* BUTTONS */
+%button {
+  width: 100%;
+  background-color: $black;
+  border-style: none;
+  border-radius: 4px;
+  padding: 0.5rem 2rem;
+  @include typography("Avenir Demi", $text-sm, $white, 2rem, none, uppercase);
+  letter-spacing: 0.05rem;
+}
+
+/* ****************************** */
+/*               FORM             */
+/* ****************************** */
+
+/* FORM MOBILE */
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  &__label {
+    @include typography("Avenir Demi", $text-xs, $silver, 2rem, none, uppercase);
+    margin: 0;
+  }
+  &__input-name {
+    @extend %input-style;
+    height: 36px;
+  }
+  &__textarea {
+    @extend %input-style;
+  }
+  &__button {
+    @extend %button;
+  }
+}
