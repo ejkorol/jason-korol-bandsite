@@ -235,6 +235,16 @@
   }
 }
 
+/* COMMENT SECTION DESKTOP */
+@include respond-to-min($desktop) {
+  .comments {
+    padding: 2rem 8rem;
+    &__form-wrapper {
+      padding: 1.5rem 8rem;
+    }
+  }
+}
+
 /* ****************************** */
 /*         COMMENT ARTICLE        */
 /* ****************************** */
@@ -272,5 +282,12 @@
 @include respond-to-min($tablet) {
   .comment {
     padding: 1rem 4rem;
+  }
+}
+
+/* COMMENT ARTICLE DESKTOP */
+@include respond-to-min($desktop) {
+  .comment {
+    padding: 1rem 8rem;
   }
 }
