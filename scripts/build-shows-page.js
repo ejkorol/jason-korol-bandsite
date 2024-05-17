@@ -40,6 +40,32 @@ const shows = [
 ];
 
 //**********************************//
+//           PAGE SCEHMA            //
+//**********************************//
+const pageSchema = {
+  type: "section",
+  className: "shows",
+  children: [
+    {
+      type: "div",
+      className: "shows__left",
+      children: [
+        {
+          type: "h2",
+          className: "shows__header",
+          content: "shows"
+        }
+      ]
+    },
+    {
+      type: "div",
+      className: "shows__right",
+      childId: "shows"
+    }
+  ]
+}
+
+//**********************************//
 //           SHOW SCEHMA            //
 //**********************************//
 const showSchema = {
@@ -107,6 +133,35 @@ const showSchema = {
     }
   ]
 };
+
+//******************************************************//
+//                 CREATE PAGE LAYOUT                   //
+//******************************************************//
+function createLayout(schema) {
+  const layout = document.createElement(schema.type);
+  layout.classList.add(schema.className);
+
+  if (schema.childId) layout.id = schema.childId;
+  if (schema.content) layout.innerText = schema.content;
+  if (schema.children) {
+    schema.children.forEach(child => {
+      layout.appendChild(createLayout(child));
+    })
+  };
+
+  return layout;
+};
+
+//******************************************************//
+//                 RENDER PAGE LAYOUT                   //
+//******************************************************//
+function renderLayout(schema) {
+  const region = document.getElementById("hero-shows");
+  const page = createLayout(schema);
+  region.insertAdjacentElement("afterend", page);
+};
+
+renderLayout(pageSchema);
 
 //******************************************************//
 //                    CREATE SHOWS                      //
