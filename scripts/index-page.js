@@ -67,19 +67,26 @@ const commentSchema = {
 };
 
 //******************************************************//
-//                 CREATE COMMENTS                      //
+//                   CREATE COMMENTS                    //
 //******************************************************//
-function createComment({ type, className, content = "", children = [] }, data) {
-  const element = document.createElement(type);
-  if (className) element.classList.add(className);
-  if (content) element.textContent = data[content] || content;
+function createComment(schema, data) {
+  const comment = document.createElement(schema.type);
+  comment.classList.add(schema.className);
+  if (schema.content) {
+    comment.textContent = data[schema.content];
+  } else {
+    comment.textContent = schema.content;
+  };
 
-  children.forEach(child => {
-    element.appendChild(createComment(child, data));
-  });
+  if (schema.children) {
+    schema.children.forEach(child => {
+      comment.appendChild(createComment(child, data));
+    });
+  };
 
-  return element;
-}
+  return comment;
+};
+
 
 //******************************************************//
 //                    RENDER COMMENTS                   //
@@ -89,7 +96,7 @@ function renderComments(comments, schema) {
   comments.forEach(comment => {
     region.appendChild(createComment(schema, comment));
   });
-}
+};
 
 renderComments(comments, commentSchema);
 
