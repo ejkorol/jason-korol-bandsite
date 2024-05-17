@@ -25,7 +25,7 @@ let comments = [
 const commentSchema = {
   type: "article",
   className: "comment",
-  components: [
+  children: [
     {
       type: "div",
       className: "comment__image-wrapper",
@@ -66,58 +66,30 @@ const commentSchema = {
   ]
 };
 
-
 //******************************************************//
 //              CREATE ELEMENTS OF COMMENT              //
 //******************************************************//
-function createCommentElements(schema, data) {
-  const $element = document.createElement(schema.type);
-  $element.classList.add(schema.className);
+function createComment({ type, className, content = "", children = [] }, data) {
+  const element = document.createElement(type);
+  if (className) element.classList.add(className);
+  if (content) element.textContent = data[content] || content;
 
-  if (schema.content !== "") {
-    if (schema.content in data) {
-      $element.textContent = data[schema.content];
-    } else {
-      $element.textContent = schema.content;
-    };
-  };
-
-  if (schema.children) {
-    schema.children.forEach(child => {
-      const $child = createCommentElements(child, data);
-      $element.appendChild($child);
-    });
-  };
-
-  return $element;
-};
-
-//******************************************************//
-//                    CREATE COMMENT                    //
-//******************************************************//
-function createComment(schema, data) {
-  const $comment = document.createElement(schema.type);
-  $comment.classList.add(schema.className);
-
-  commentSchema.components.forEach(component => {
-    const $child = createCommentElements(component, data);
-    $comment.appendChild($child);
+  children.forEach(child => {
+    element.appendChild(createComment(child, data));
   });
 
-  return $comment;
-};
+  return element;
+}
 
 //******************************************************//
 //                    RENDER COMMENTS                   //
 //******************************************************//
-function renderComments(comments, commentSchema) {
+function renderComments(comments, schema) {
   const region = document.getElementById("feed");
-
   comments.forEach(comment => {
-    const $comment = createComment(commentSchema, comment);
-    region.appendChild($comment);
+    region.appendChild(createComment(schema, comment));
   });
-};
+}
 
 renderComments(comments, commentSchema);
 
