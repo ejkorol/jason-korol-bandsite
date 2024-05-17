@@ -107,22 +107,21 @@ render(comments, commentSchema);
 /* CREATE COMMENT */
 function addComment(comment) {
   comments.unshift(comment);
-  const $comment = createComponent(commentSchema, comment);
-  let $parent = document.getElementById("feed");
-  let $firstChild = $parent.firstChild;
-  return $parent.insertBefore($comment, $firstChild);
+  const component = createComponent(commentSchema, comment);
+  const parent = document.getElementById("feed")
+  return parent.insertBefore(component, parent.firstChild);
 };
 
 /* LISTEN TO FORM */
-const form = document.getElementById("comment-form");
-form.addEventListener('submit', e => {
+document.getElementById("comment-form").addEventListener('submit', e => {
   e.preventDefault();
+
   const comment = {
     userName: e.target.name.value,
     comment: e.target.comment.value,
     commentDate: new Date()
   };
-  e.target.name.value = "";
-  e.target.comment.value = "";
+
   addComment(comment);
+  e.target.reset();
 });
