@@ -69,36 +69,36 @@ const commentSchema = {
 //******************************************************//
 //                   CREATE COMMENTS                    //
 //******************************************************//
-function createComment(schema, data) {
-  const comment = document.createElement(schema.type);
-  comment.classList.add(schema.className);
+function createComponent(schema, data) {
+  const component = document.createElement(schema.type);
+  component.classList.add(schema.className);
   if (schema.content) {
-    comment.textContent = data[schema.content];
+    component.textContent = data[schema.content];
   } else {
-    comment.textContent = schema.content;
+    component.textContent = schema.content;
   };
 
   if (schema.children) {
     schema.children.forEach(child => {
-      comment.appendChild(createComment(child, data));
+      component.appendChild(createComponent(child, data));
     });
   };
 
-  return comment;
+  return component;
 };
 
 
 //******************************************************//
 //                    RENDER COMMENTS                   //
 //******************************************************//
-function renderComments(comments, schema) {
+function render(data, schema) {
   const region = document.getElementById("feed");
-  comments.forEach(comment => {
-    region.appendChild(createComment(schema, comment));
+  data.forEach(entry => {
+    region.appendChild(createComponent(schema, entry));
   });
 };
 
-renderComments(comments, commentSchema);
+render(comments, commentSchema);
 
 //******************************************************//
 //                     FORM LOGIC                       //
@@ -107,7 +107,7 @@ renderComments(comments, commentSchema);
 /* CREATE COMMENT */
 function addComment(comment) {
   comments.unshift(comment);
-  const $comment = createComment(commentSchema, comment);
+  const $comment = createComponent(commentSchema, comment);
   let $parent = document.getElementById("feed");
   let $firstChild = $parent.firstChild;
   return $parent.insertBefore($comment, $firstChild);
