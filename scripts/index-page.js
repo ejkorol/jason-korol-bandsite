@@ -67,7 +67,7 @@ const commentSchema = {
 };
 
 //******************************************************//
-//              CREATE ELEMENTS OF COMMENT              //
+//                 CREATE COMMENTS                      //
 //******************************************************//
 function createComment({ type, className, content = "", children = [] }, data) {
   const element = document.createElement(type);
