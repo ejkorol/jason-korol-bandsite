@@ -87,7 +87,6 @@ function createComponent(schema, data) {
   return component;
 };
 
-
 //******************************************************//
 //                    RENDER COMMENTS                   //
 //******************************************************//
