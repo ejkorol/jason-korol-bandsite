@@ -45,7 +45,7 @@ const shows = [
 const showSchema = {
   type: "article",
   className: "show",
-  components: [
+  children: [
     {
       type: "div",
       className: "show__date",
@@ -109,58 +109,34 @@ const showSchema = {
 };
 
 //******************************************************//
-//              CREATE ELEMENTS OF SHOW                 //
+//                    CREATE SHOWS                      //
 //******************************************************//
-function createShowElements(schema, data) {
-  const $element = document.createElement(schema.type);
-  $element.classList.add(schema.className);
-
-  if (schema.content !== "") {
-    // if the value exists as a key
-    if (schema.content in data) {
-      // assign the value as the keys value
-      $element.textContent = data[schema.content];
-    } else {
-      // or, just keep the original content described in the schema
-      $element.textContent = schema.content;
-    }
-  }
+function createComponent(schema, data) {
+  const component = document.createElement(schema.type);
+  component.classList.add(schema.className);
+  if (schema.content in data) {
+    component.textContent = data[schema.content];
+  } else {
+    component.textContent = schema.content;
+  };
 
   if (schema.children) {
     schema.children.forEach(child => {
-      const $child = createShowElements(child, data);
-      $element.appendChild($child);
+      component.appendChild(createComponent(child, data));
     });
-  }
+  };
 
-  return $element;
-};
-
-//******************************************************//
-//                     CREATE SHOW                      //
-//******************************************************//
-function createShow(schema, data) {
-  const $show = document.createElement(schema.type);
-  $show.classList.add(schema.className);
-
-  showSchema.components.forEach(component => {
-    const $child = createShowElements(component, data);
-    $show.appendChild($child);
-  });
-
-  return $show;
+  return component;
 };
 
 //******************************************************//
 //                    RENDER SHOWS                      //
 //******************************************************//
-function renderShows(shows, showSchema) {
+function render(data, schema) {
   const region = document.getElementById("shows");
-
-  shows.forEach(show => {
-    const $show = createShow(showSchema, show);
-    region.appendChild($show);
+  data.forEach(entry => {
+    region.appendChild(createComponent(schema, entry));
   });
 };
 
-renderShows(shows, showSchema);
+render(shows, showSchema);
