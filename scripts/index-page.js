@@ -72,7 +72,7 @@ const commentSchema = {
 function createComponent(schema, data) {
   const component = document.createElement(schema.type);
   component.classList.add(schema.className);
-  if (schema.content) {
+  if (schema.content in data) {
     component.textContent = data[schema.content];
   } else {
     component.textContent = schema.content;
