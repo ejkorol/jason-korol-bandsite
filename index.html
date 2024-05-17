@@ -81,33 +81,22 @@
             <img class="comments__image" src="./assets/images/Mohan-muruge.jpg" alt="user image"/>
           </div>
           <div class="comments__right">
-            <form class="comment-form">
+
+            <form class="comment-form" id="comment-form">
               <label class="comment-form__label" for="name">name</label>
               <input class="comment-form__input-name" type="text" name="name" value="" placeholder="Enter your name" />
               <br>
               <label class="comment-form__label" for="comment">comment</label>
               <textarea class="comment-form__textarea" type="text" name="comment" value="" placeholder="Add a new comment" rows="7"></textarea>
               <br>
-              <button class="comment-form__button" type="button">comment</button>
+              <button class="comment-form__button">comment</button>
             </form>
+
           </div>
         </div>
 
-        <div class="coments__feed">
-          <article class="comment">
-            <div class="comment__image-wrapper">
-              <img class="comment__image" src="./assets/images/placeholder.png" alt="user image"/>
-            </div>
+        <div class="coments__feed" id="feed"></div>
 
-            <div class="comment__content">
-              <div class="comment__title">
-                <h3 class="comment__header">Victor Pinto</h3>
-                <p class="comment__text--date">11/02/2023</p>
-              </div>
-              <p class="comment__text">This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.</p>
-            </div>
-          </article>
-        </div>
       </section>
 
     </main>
