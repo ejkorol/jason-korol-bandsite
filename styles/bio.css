@@ -235,7 +235,6 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  white-space: nowrap;
 }
 .footer-section__header {
   margin: 0;
@@ -812,6 +811,9 @@ body, html {
   padding: 1rem 0;
   border-bottom: solid 1px #E1E1E1;
 }
+.comment__content {
+  width: 100%;
+}
 .comment__image {
   width: 48px;
   border-radius: 50%;
@@ -820,6 +822,7 @@ body, html {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
 }
 .comment__header {
   margin: 0;

@@ -235,7 +235,6 @@
   flex-direction: column;
   justify-content: flex-end;
   height: 100%;
-  white-space: nowrap;
 }
 .footer-section__header {
   margin: 0;
