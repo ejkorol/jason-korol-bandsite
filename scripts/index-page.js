@@ -5,17 +5,18 @@ let comments = [
   {
     userName: "Victor Pinto",
     comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-    commentDate: new Date(2023, 10, 2)
+    commentDate: Date.parse("2023-10-02")
+
   },
   {
     userName: "Christina Cabrera",
     comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-    commentDate: new Date(2023, 9, 28)
+    commentDate: Date.parse("2023-9-28")
   },
   {
     userName: "Isaac Tadesse",
     comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-    commentDate: new Date(2023, 9, 20)
+    commentDate: Date.parse("2023-9-20")
   }
 ];
 
@@ -52,7 +53,8 @@ const commentSchema = {
             {
               type: "p",
               className: "comment__text--date",
-              content: "commentDate"
+              content: "commentDate",
+              commentStamp: ""
             }
           ]
         },
@@ -77,6 +79,9 @@ function createComponent(schema, data) {
   } else {
     component.textContent = schema.content;
   };
+  if (schema.content === "commentDate") {
+    component.textContent = elapsedDuration(data.commentDate);
+  }
 
   if (schema.children) {
     schema.children.forEach(child => {
@@ -118,9 +123,38 @@ document.getElementById("comment-form").addEventListener('submit', e => {
   const comment = {
     userName: e.target.name.value,
     comment: e.target.comment.value,
-    commentDate: new Date()
+    commentDate: Date.now()
   };
 
   addComment(comment);
   e.target.reset();
 });
+
+
+//******************************************************//
+//                  TIME STAMP LOGIC                    //
+//******************************************************//
+function elapsedDuration(time) {
+  const dif = Date.now() - time;
+  const seconds = Math.floor(dif / 1000);
+
+  const timeUnits = [
+    { unit: 'year', value: 31536000 },
+    { unit: 'month', value: 2592000 },
+    { unit: 'day', value: 86400 },
+    { unit: 'hour', value: 3600 },
+    { unit: 'minute', value: 60 }
+  ];
+
+  for (let { unit, value } of timeUnits) {
+    const elapsed = Math.floor(seconds / value);
+    if (elapsed >= 1) {
+      const unitStr = elapsed === 1 ? unit : `${unit}s`;
+      const message = `${elapsed} ${unitStr} ago`;
+      return message;
+    }
+  }
+
+  const message = 'Just now';
+  return message;
+};
