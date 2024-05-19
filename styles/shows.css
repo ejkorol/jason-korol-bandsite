@@ -470,7 +470,6 @@ body, html {
 }
 .show:hover {
   background-color: #FAFAFA;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
 /* BUTTONS */
@@ -482,7 +481,7 @@ body, html {
   border-radius: 4px;
   padding: 0.5rem 2rem;
   font-family: "Avenir Demi";
-  font-size: 1rem;
+  font-size: 0.75rem;
   color: #FFFFFF;
   line-height: 2rem;
   text-decoration: none;
@@ -565,6 +564,9 @@ body, html {
   .shows__right {
     flex-grow: 1;
   }
+  .shows__item {
+    padding: 0 1rem;
+  }
 }
 /* ****************************** */
 /*         SHOWS ARTICLES         */
@@ -613,6 +615,14 @@ body, html {
   width: 100%;
   margin: 1rem 0;
 }
+.show--selected {
+  background-color: #E1E1E1;
+  transition: 0.3s ease;
+}
+.show--selected:hover {
+  background-color: #E1E1E1;
+}
+
 /* SHOW ARTICLE TABLET */
 @media (min-width: 768px) {
   .show {
@@ -640,6 +650,12 @@ body, html {
 @media (min-width: 1280px) {
   .show {
     padding: 0;
+  }
+  .show__date, .show__venue, .show__location {
+    padding: 0 1rem;
+  }
+  .show__button-container {
+    padding: 0 1rem;
   }
 }
 
