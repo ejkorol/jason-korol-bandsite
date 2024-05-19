@@ -60,7 +60,7 @@ const pageSchema = {
     {
       type: "div",
       className: "shows__right",
-      childId: "shows"
+      id: "shows"
     }
   ]
 }
@@ -141,7 +141,7 @@ function createLayout(schema) {
   const layout = document.createElement(schema.type);
   layout.classList.add(schema.className);
 
-  if (schema.childId) layout.id = schema.childId;
+  if (schema.id) layout.id = schema.id;
   if (schema.content) layout.innerText = schema.content;
   if (schema.children) {
     schema.children.forEach(child => {
