@@ -12,7 +12,6 @@
   transition: 0.3s;
   &:hover {
     background-color: $alabaster;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   }
 }
 
@@ -24,7 +23,7 @@
   border-style: none;
   border-radius: 4px;
   padding: 0.5rem 2rem;
-  @include typography("Avenir Demi", $text-sm, $white, 2rem, none, uppercase);
+  @include typography("Avenir Demi", $text-xs, $white, 2rem, none, uppercase);
   letter-spacing: 0.05rem;
   transition: 0.3s;
   &:hover {
@@ -96,6 +95,9 @@
     &__right {
       flex-grow: 1;
     }
+    &__item {
+      padding: 0 1rem;
+    }
   }
 }
 
@@ -135,6 +137,13 @@
   &__button {
     @extend %button;
   }
+  &--selected {
+    background-color: $mercury;
+    transition: 0.3s ease;
+    &:hover {
+      background-color: $mercury;
+    }
+  }
 }
 
 /* SHOW ARTICLE TABLET */
@@ -167,5 +176,11 @@
 @include respond-to-min($desktop) {
   .show {
     padding: 0;
+    &__date, &__venue, &__location {
+      padding: 0 1rem;
+    }
+    &__button-container {
+      padding: 0 1rem;
+    }
   }
 }
