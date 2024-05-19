@@ -13,14 +13,16 @@
   padding: 0.75rem;
   transition: 0.5s;
   outline-color: initial;
-  &::placeholder {
-    @include typography("Avenir Regular", $text-sm, $black, 2rem, none, none);
-  }
+  @include typography("Avenir Regular", $text-sm, $black, 2rem, none, none);
   &:focus {
-    outline-color: $silver;
+    outline: 1px solid $dark-black;
   }
-  &--error {
-    outline-color: red;
+}
+
+/* ERROR */
+.form-error {
+  &:focus {
+    outline: 1px solid red;
   }
 }
 
