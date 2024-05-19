@@ -31,11 +31,6 @@ const shows = [
     showDate: "Wed Dec 18 2024",
     showVenue: "Press Club",
     showLocation: "San Francisco, CA"
-  },
-  {
-    showDate: "i need a girlfriend",
-    showVenue: "right now",
-    showLocation: "im in toronto"
   }
 ];
 
