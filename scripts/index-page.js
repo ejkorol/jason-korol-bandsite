@@ -124,9 +124,9 @@ render(comments, commentSchema);
 /* CREATE COMMENT */
 function addComment(comment) {
   comments.unshift(comment);
-  const component = createComponent(commentSchema, comment);
-  const parent = document.getElementById("feed")
-  return parent.insertBefore(component, parent.firstChild);
+  const feed = document.getElementById("feed");
+  feed.innerHTML = "";
+  return render(comments, commentSchema);
 };
 
 /* LISTEN TO FORM */
