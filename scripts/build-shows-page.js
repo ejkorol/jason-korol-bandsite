@@ -242,3 +242,27 @@ function render(data, schema) {
 };
 
 render(shows, showSchema);
+
+//******************************************************//
+//                     SHOW STATES                      //
+//******************************************************//
+function selectShow(e) {
+  const show = e.currentTarget.closest(".show");
+  const selectedShow = document.querySelector(".show--selected");
+  
+  if (show === selectedShow) {
+    show.classList.remove("show--selected");
+    return;
+  };
+
+  if (selectedShow) {
+    selectedShow.classList.remove("show--selected");
+  };
+
+  show.classList.add("show--selected");
+}
+
+const showComponents = document.querySelectorAll(".show");
+showComponents.forEach((show) => {
+  show.addEventListener("click", selectShow);
+});
