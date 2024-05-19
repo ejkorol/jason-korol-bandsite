@@ -5,18 +5,20 @@ let comments = [
   {
     userName: "Victor Pinto",
     comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-    commentDate: Date.parse("2023-10-02")
-
+    commentDate: Date.parse("2023-10-02"),
+    uid: ""
   },
   {
     userName: "Christina Cabrera",
     comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-    commentDate: Date.parse("2023-9-28")
+    commentDate: Date.parse("2023-9-28"),
+    uid: ""
   },
   {
     userName: "Isaac Tadesse",
     comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-    commentDate: Date.parse("2023-9-20")
+    commentDate: Date.parse("2023-9-20"),
+    uid: ""
   }
 ];
 
@@ -54,7 +56,7 @@ const commentSchema = {
               type: "p",
               className: "comment__text--date",
               content: "commentDate",
-              commentStamp: ""
+              uid: ""
             }
           ]
         },
@@ -69,17 +71,28 @@ const commentSchema = {
 };
 
 //******************************************************//
+//                GENERATE UID FOR DATES                //
+//******************************************************//
+function uid () {
+  return Math.random().toString(16).slice(2)
+};
+
+//******************************************************//
 //                   CREATE COMMENTS                    //
 //******************************************************//
 function createComponent(schema, data) {
   const component = document.createElement(schema.type);
   component.classList.add(schema.className);
+
   if (schema.content in data) {
     component.textContent = data[schema.content];
   } else {
-    component.textContent = schema.content;
-  };
+    component.textContent = schema.content };
+
   if (schema.content === "commentDate") {
+    const uuid = uid();
+    data.uid = uuid;
+    component.id = uuid;
     component.textContent = elapsedDuration(data.commentDate);
   }
 
@@ -130,10 +143,24 @@ document.getElementById("comment-form").addEventListener('submit', e => {
   e.target.reset();
 });
 
-
 //******************************************************//
 //                  TIME STAMP LOGIC                    //
 //******************************************************//
+
+// UPDATE TIME ON THE MINUTE
+setInterval(() => {
+  updateCommentTime()
+}, 60000);
+
+// UPDATE TIME STAMPS
+function updateCommentTime() {
+  comments.forEach((comment) => {
+    let commentTime = document.getElementById(comment.uid);
+    commentTime.innerText = elapsedDuration(comment.commentDate);
+  })
+};
+
+// GENERATE VERBOISE TIME
 function elapsedDuration(time) {
   const dif = Date.now() - time;
   const seconds = Math.floor(dif / 1000);
