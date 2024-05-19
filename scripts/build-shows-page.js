@@ -58,9 +58,56 @@ const pageSchema = {
       ]
     },
     {
+      /* ROOT OF SHOWS */
       type: "div",
       className: "shows__right",
-      id: "shows"
+      id: "shows",
+      children: [
+        /* SHOWS NAV */
+        {
+          type: "div",
+          className: "shows__nav",
+          children: [
+            {
+              type: "div",
+              className: "shows__item",
+              children: [
+                {
+                  type: "p",
+                  className: "shows__text",
+                  content: "date"
+                }
+              ]
+            },
+            {
+              type: "div",
+              className: "shows__item",
+              children: [
+                {
+                  type: "p",
+                  className: "shows__text",
+                  content: "venue"
+                }
+              ]
+            },
+            {
+              type: "div",
+              className: "shows__item",
+              children: [
+                {
+                  type: "p",
+                  className: "shows__text",
+                  content: "location"
+                }
+              ]
+            },
+            {
+              type: "div",
+              className: "shows__item"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
