@@ -201,15 +201,19 @@ function elapsedDuration(time) {
     { unit: 'minute', value: 60 }
   ];
 
-  for (let { unit, value } of timeUnits) {
+  for (let i = 0; i < timeUnits.length; i++) {
+    const unit = timeUnits[i].unit;
+    const value = timeUnits[i].value;
     const elapsed = Math.floor(seconds / value);
+
     if (elapsed >= 1) {
-      const unitStr = elapsed === 1 ? unit : `${unit}s`;
-      const message = `${elapsed} ${unitStr} ago`;
-      return message;
+      let unitStr = unit;
+      if (elapsed > 1) {
+        unitStr = unit + 's';
+      }
+      return elapsed + ' ' + unitStr + ' ago';
     }
   }
 
-  const message = 'Just now';
-  return message;
-};
+  return 'Just now';
+}
