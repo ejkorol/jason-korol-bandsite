@@ -141,7 +141,35 @@ document.getElementById("comment-form").addEventListener('submit', e => {
 
   addComment(comment);
   e.target.reset();
+  buttonEl.disabled = true;
 });
+
+//******************************************************//
+//                   FORM VALIDATION                    //
+//******************************************************//
+let inputEl = document.getElementById("name");
+let commentEl = document.getElementById("comment");
+let buttonEl = document.getElementById("form-button");
+
+function validateForm(inputEl, commentEl, buttonEl) {
+  return function () {
+    const nameValue = inputEl.value.trim();
+    const commentValue = commentEl.value.trim();
+    
+    if (nameValue === "" || commentValue === "") {
+      inputEl.classList.add("form-error");
+      commentEl.classList.add("form-error");
+      buttonEl.disabled = true;
+    } else {
+      inputEl.classList.remove("form-error");
+      commentEl.classList.remove("form-error");
+      buttonEl.disabled = false;
+    };
+  };
+};
+
+inputEl.addEventListener("input", validateForm(inputEl, commentEl, buttonEl));
+commentEl.addEventListener("input", validateForm(inputEl, commentEl, buttonEl));
 
 //******************************************************//
 //                  TIME STAMP LOGIC                    //
