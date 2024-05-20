@@ -91,7 +91,8 @@ function createComponent(schema, data) {
   if (schema.content in data) {
     component.textContent = data[schema.content];
   } else {
-    component.textContent = schema.content };
+    component.textContent = schema.content
+  };
 
   if (schema.content === "commentDate") {
     const uuid = uid();
@@ -144,12 +145,13 @@ function addComment(comment) {
 /* LISTEN TO FORM */
 document.getElementById("comment-form").addEventListener('submit', e => {
   e.preventDefault();
+  let imageSrc = "./assets/images/Mohan-muruge.jpg";
 
   const comment = {
     userName: e.target.name.value,
     comment: e.target.comment.value,
     commentDate: Date.now(),
-    userImage: "./assets/images/Mohan-muruge.jpg"
+    userImage: imageSrc
   };
 
   addComment(comment);
@@ -166,7 +168,7 @@ let buttonEl = document.getElementById("form-button");
 
 function validateForm(inputEl, commentEl, buttonEl) {
   return function () {
-    const nameValue = inputEl.value.trim();
+    const nameValue = inputEl.value.trim(); // <- Remove whitespace to prevent false submission
     const commentValue = commentEl.value.trim();
     
     if (nameValue === "" || commentValue === "") {

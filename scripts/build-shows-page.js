@@ -53,12 +53,10 @@ const pageSchema = {
       ]
     },
     {
-      /* ROOT OF SHOWS */
       type: "div",
       className: "shows__right",
       id: "shows",
       children: [
-        /* SHOWS NAV */
         {
           type: "div",
           className: "shows__nav",
@@ -255,7 +253,7 @@ function selectShow(e) {
   };
 
   show.classList.add("show--selected");
-}
+};
 
 const showComponents = document.querySelectorAll(".show");
 showComponents.forEach((show) => {
