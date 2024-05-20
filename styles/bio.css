@@ -824,7 +824,12 @@ body, html {
 }
 .comment__image {
   width: 48px;
+  height: 48px;
+  object-fit: cover;
   border-radius: 50%;
+}
+.comment__image--placeholder {
+  background: #E1E1E1;
 }
 .comment__title {
   display: flex;
