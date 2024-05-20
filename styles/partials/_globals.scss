@@ -24,7 +24,7 @@ body, html {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    height: 50vh;
+    height: 30vh;
   }
   &--shows {
     background: linear-gradient(rgba(50, 50, 50, 0.5), rgba(50, 50, 50, 0.5)), url("../../assets/images/hero-shows.jpg");
@@ -64,7 +64,11 @@ body, html {
 /* HERO TABLET */
 @include respond-to-min($tablet) {
   .hero {
-    height: 80vh;
+    height: 40vh;
+    &--shows {
+      padding: 1rem;
+      height: 50vh;
+    }
     &__container {
       padding: 0 4rem;
     }
@@ -85,7 +89,7 @@ body, html {
 /* HERO DESKTOP */
 @include respond-to-min($desktop) {
   .hero {
-    height: 80vh;
+    height: 50vh;
     &__container {
       padding: 0 8rem;
       flex-direction: row;
