@@ -3,6 +3,7 @@
 /* ****************************** */
 /* PRIMARY */
 /* SECONDARY */
+/* STATES */
 /* ****************************** */
 /*           BREAKPOINTS          */
 /* ****************************** */
@@ -484,7 +485,7 @@ body, html {
 
 /* ERROR */
 .form-error:focus {
-  outline: 1px solid red;
+  outline: 1px solid #D22D2D;
 }
 
 /* BUTTONS */
