@@ -6,19 +6,22 @@ let comments = [
     userName: "Victor Pinto",
     comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
     commentDate: Date.parse("2023-10-02"),
-    uid: ""
+    uid: "",
+    userImage: ""
   },
   {
     userName: "Christina Cabrera",
     comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
     commentDate: Date.parse("2023-9-28"),
-    uid: ""
+    uid: "",
+    userImage: ""
   },
   {
     userName: "Isaac Tadesse",
     comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
     commentDate: Date.parse("2023-9-20"),
-    uid: ""
+    uid: "",
+    userImage: ""
   }
 ];
 
@@ -35,7 +38,8 @@ const commentSchema = {
       children: [
         {
           type: "img",
-          className: "comment__image"
+          className: "comment__image",
+          imageSrc: ""
         }
       ]
     },
@@ -94,7 +98,15 @@ function createComponent(schema, data) {
     data.uid = uuid;
     component.id = uuid;
     component.textContent = elapsedDuration(data.commentDate);
-  }
+  };
+
+  if (schema.imageSrc === "") {
+    if (data.userImage === "") {
+      component.classList.add("comment__image--placeholder");
+    } else {
+      component.src = data.userImage;
+    };
+  };
 
   if (schema.children) {
     schema.children.forEach(child => {
@@ -136,7 +148,8 @@ document.getElementById("comment-form").addEventListener('submit', e => {
   const comment = {
     userName: e.target.name.value,
     comment: e.target.comment.value,
-    commentDate: Date.now()
+    commentDate: Date.now(),
+    userImage: "./assets/images/Mohan-muruge.jpg"
   };
 
   addComment(comment);
