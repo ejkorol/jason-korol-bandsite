@@ -263,7 +263,12 @@
   }
   &__image {
     width: 48px;
+    height: 48px;
+    object-fit: cover;
     border-radius: 50%;
+    &--placeholder {
+      background: $mercury;
+    }
   }
   &__title {
     display: flex;
