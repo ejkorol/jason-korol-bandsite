@@ -225,10 +225,10 @@ function elapsedDuration(time) {
       let unitStr = unit;
       if (elapsed > 1) {
         unitStr = unit + 's';
-      }
+      };
       return elapsed + ' ' + unitStr + ' ago';
-    }
-  }
+    };
+  };
 
   return 'Just now';
-}
+};
