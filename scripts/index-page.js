@@ -95,7 +95,7 @@ const commentSchema = {
           children: [
             {
               type: "button",
-              className: "comment__button",
+              className: "comment__button--like",
               children: [
                 {
                   type: "img",
@@ -106,7 +106,7 @@ const commentSchema = {
             },
             {
               type: "button",
-              className: "comment__button",
+              className: "comment__button--delete",
               children: [
                 {
                   type: "img",
@@ -147,16 +147,31 @@ function createComponent(schema, data) {
     component.classList.add("comment__image--placeholder");
   }
 
+  /* ADD LIKE ICON */
   if (schema.content === "like") {
     component.src = "./assets/icons/icon-like.svg";
-    component.id = data.id;
     component.textContent = "";
   };
 
+  /* ADD DELETE ICON */
   if (schema.content === "delete") {
     component.src = "./assets/icons/icon-delete.svg";
-    component.id = data.id;
     component.textContent = "";
+  };
+
+  /* ADD EVENT LISTENERS */
+  if (schema.type === "button") {
+    if (schema.className === "comment__button--like") {
+      component.id = data.id;
+      component.addEventListener("click", () => {
+        handleLike(component.id);
+      });
+    } else if (schema.className === "comment__button--delete") {
+      component.id = data.id;
+      component.addEventListener("click", () => {
+        handleDelete(component.id);
+      });
+    };
   };
 
   /* CREATE CHILDREN */
@@ -282,4 +297,28 @@ function elapsedDuration(time) {
   };
 
   return 'Just now';
+};
+
+//******************************************************//
+//                 COMMENT STATE LOGIC                  //
+//******************************************************//
+
+/* LIKE A COMMENT */
+async function handleLike (id) {
+  try {
+    await bandsiteApi.likeComment(id);
+    await fetchComments();
+  } catch (e) {
+    console.error(e);
+  };
+};
+
+/* DELETE A COMMENT */
+async function handleDelete (id) {
+  try {
+    await bandsiteApi.deleteComment(id);
+    await fetchComments();
+  } catch (e) {
+    console.error(e);
+  };
 };
