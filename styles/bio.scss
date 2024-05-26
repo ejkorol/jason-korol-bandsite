@@ -288,6 +288,25 @@
       @include typography("Avenir Regular", $text-sm, $silver, 1.5rem, none, none);
     }
   }
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__button {
+    border-style: none;
+    background-color: transparent;
+    cursor: pointer;
+    &--like {
+      @extend .comment__button;
+    }
+    &--delete {
+      @extend .comment__button;
+    }
+  }
+  &__total-likes {
+    @include typography("Avenir Regular", $text-sm, $silver, 1.5rem, none, none);
+  }
 }
 
 /* COMMENT ARTICLE TABLET */
