@@ -9,41 +9,28 @@
 .footer {
   background-color: $black;
   padding: 2rem 0;
-
+  @include respond-to-min($tablet) {
+    padding-bottom: 4rem;
+  }
   &__section {
     padding: 1rem 2rem;
     align-items: flex-end;
+    @include respond-to-min($tablet) {
+      display: flex;
+      padding: 2rem 4rem 0 4rem;
+      gap: 5%;
+    }
+    @include respond-to-min($desktop) {
+      padding: 2rem 8rem 0 8rem;
+    }
     @include respond-to-max(815px) {
       gap: 1%;
     }
     &--mobile {
       padding: 1rem 2rem;
-    }
-  }
-}
-
-/* MAIN FOOTER TABLET */
-@include respond-to-min($tablet) {
-  .footer {
-    padding-bottom: 4rem;
-
-    &__section {
-      display: flex;
-      padding: 2rem 4rem 0 4rem;
-      gap: 5%;
-
-      &--mobile {
+      @include respond-to-min($tablet) {
         display: none;
       }
-    }
-  }
-}
-
-/* MAIN FOOTER TABLET */
-@include respond-to-min($desktop) {
-  .footer {
-    &__section {
-      padding: 2rem 8rem 0 8rem;
     }
   }
 }
@@ -63,24 +50,46 @@
       margin-right: 0;
       flex-grow: 1;
     }
+    &--socials {
+      @include respond-to-min($tablet) {
+        display: flex;
+        align-items: flex-end;
+      }
+    }
   }
   &__wrapper {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     height: 100%;
+    @include respond-to-min($tablet) {
+      margin-bottom: 2rem;
+    }
   }
   &__header {
     margin: 0;
     @include typography($text-xl, 600, $white, 2rem, none, capitalize);
+    @include respond-to-min($tablet) {
+      display: flex;
+    }
     &--tablet-desktop {
       margin: 0;
       @include typography($text-xl, 600, $white, 2rem, none, capitalize);
+      @include respond-to-min($tablet) {
+        display: flex;
+      }
+      @include respond-to-max($tablet) {
+        display: none;
+      }
     }
   }
   &__subheader {
     margin: 2rem 0;
     @include typography($text-med, 600, $white, 1.5rem, none, capitalize);
+    @include respond-to-min($tablet) {
+      font-size: $text-sm;
+      line-height: 1rem;
+    }
   }
   &__text {
     margin: 0;
@@ -89,6 +98,9 @@
   &__link {
     margin: 1rem 0;
     @include typography($text-sm, 400, $white, 1.5rem, none, none);
+    @include respond-to-min($tablet) {
+      margin: 2rem 0 0 0;
+    }
   }
 
   &__icons {
@@ -96,88 +108,46 @@
     margin-top: 2rem;
     display: flex;
     gap: 2.5rem;
+    @include respond-to-min($tablet) {
+      margin: 0;
+    }
     &--tablet-desktop {
       display: flex;
       gap: 2.5rem;
+      @include respond-to-min($tablet) {
+        display: flex;
+      }
+      @include respond-to-max($tablet) {
+        display: none;
+      }
     }
   }
   &__icon {
     height: 2.5rem;
+    @include respond-to-min($tablet) {
+      height: 1.75rem;
+    }
   }
 
   &__logo {
+    @include respond-to-max($tablet) {
+      display: none;
+    }
     &--mobile {
       width: 10rem;
       margin: 1.5rem 0 1rem 0;
+      @include respond-to-min($tablet) {
+        display: none;
+      }
     }
     &--tablet-desktop {
       height: 1.5rem;
-    }
-  }
-}
-
-/* FOOTER SECTIONS TABLET */
-@include respond-to-min($tablet) {
-  .footer-section {
-    &__item {
-      &--socials {
-        display: flex;
-        align-items: flex-end;
-      }
-    }
-    &__wrapper {
-      margin-bottom: 2rem;
-    }
-    &__header {
-      display: flex;
-      &--tablet-desktop {
-        display: flex;
-      }
-    }
-    &__subheader {
-      font-size: $text-sm;
-      line-height: 1rem;
-    }
-    &__link {
-      margin: 2rem 0 0 0;
-    }
-    &__icons {
-      margin: 0;
-      &--tablet-desktop {
-        display: flex;
-      }
-    }
-    &__icon {
-      height: 1.75rem;
-    }
-    &__logo {
-      &--mobile {
-        display: none;
-      }
-      &--tablet-desktop {
+      @include respond-to-min($tablet) {
         display: flex;
         margin: 0;
         margin-left: auto;
       }
-    }
-  }
-}
-
-@include respond-to-max(766px) {
-  .footer-section {
-    &__header {
-      &--tablet-desktop {
-        display: none;
-      }
-    }
-    &__icons {
-      &--tablet-desktop {
-        display: none;
-      }
-    }
-    &__logo {
-      display: none;
-      &--tablet-desktop {
+      @include respond-to-max($tablet) {
         display: none;
       }
     }
