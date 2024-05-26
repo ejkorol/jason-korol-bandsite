@@ -78,7 +78,7 @@
       width: 100%;
       height: 100%;
       align-items: center;
-      @include typography("Avenir Demi", $text-med, $white, 2rem, none, capitalize);
+      @include typography($text-med, 600, $white, 2rem, none, capitalize);
       position: relative;
       align-items: center;
     }
@@ -90,10 +90,10 @@
       height: 100%;
       width: 100%;
       margin: 0;
-      @include typography("Avenir Regular", $text-med, $mercury, 2rem, none, capitalize);
+      @include typography($text-med, 400, $mercury, 2rem, none, capitalize);
       @extend %underline;
       &--active {
-        @include typography("Avenir Regular", $text-med, $white, 2rem, none, capitalize);
+        @include typography($text-med, 400, $white, 2rem, none, capitalize);
         @extend %underline--active;
       }
       &--brand {

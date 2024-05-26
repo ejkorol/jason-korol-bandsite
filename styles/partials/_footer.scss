@@ -72,23 +72,23 @@
   }
   &__header {
     margin: 0;
-    @include typography("Avenir Demi", $text-xl, $white, 2rem, none, capitalize);
+    @include typography($text-xl, 600, $white, 2rem, none, capitalize);
     &--tablet-desktop {
       margin: 0;
-      @include typography("Avenir Demi", $text-xl, $white, 2rem, none, capitalize);
+      @include typography($text-xl, 600, $white, 2rem, none, capitalize);
     }
   }
   &__subheader {
     margin: 2rem 0;
-    @include typography("Avenir Demi", $text-med, $white, 1.5rem, none, capitalize);
+    @include typography($text-med, 600, $white, 1.5rem, none, capitalize);
   }
   &__text {
     margin: 0;
-    @include typography("Avenir Regular", $text-sm, $white, 1.5rem, none, capitalize);
+    @include typography($text-sm, 400, $white, 1.5rem, none, capitalize);
   }
   &__link {
     margin: 1rem 0;
-    @include typography("Avenir Regular", $text-sm, $white, 1.5rem, none, none);
+    @include typography($text-sm, 400, $white, 1.5rem, none, none);
   }
 
   &__icons {

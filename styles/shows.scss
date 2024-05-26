@@ -23,7 +23,7 @@
   border-style: none;
   border-radius: 4px;
   padding: 0.5rem 2rem;
-  @include typography("Avenir Demi", $text-xs, $white, 2rem, none, uppercase);
+  @include typography($text-xs, 600, $white, 2rem, none, uppercase);
   letter-spacing: 0.05rem;
   transition: 0.3s;
   &:hover {
@@ -57,7 +57,7 @@
     }
   }
   &__header {
-    @include typography("Avenir Demi", $text-lg, $black, 2rem, none, capitalize);
+    @include typography($text-lg, 600, $black, 2rem, none, capitalize);
     margin: 0;
     @include respond-to-min($tablet) {
       font-size: $text-xl;
@@ -90,7 +90,7 @@
   }
   &__text {
     @include respond-to-min($tablet) {
-      @include typography("Avenir Demi", $text-xs, $silver, 2rem, none, uppercase);
+      @include typography($text-xs, 600, $silver, 2rem, none, uppercase);
       margin: 0;
       padding: 0;
     }
@@ -142,16 +142,16 @@
     }
   }
   &__text {
-    @include typography("Avenir Regular", $text-sm, $black, 2rem, none, capitalize);
+    @include typography($text-sm, 400, $black, 2rem, none, capitalize);
     margin: 0;
     padding: 0;
     &--helper {
-      @include typography("Avenir Demi", $text-xs, $silver, 2rem, none, uppercase);
+      @include typography($text-xs, 600, $silver, 2rem, none, uppercase);
       margin: 0;
       padding: 0;
     }
     &--bold {
-      @include typography("Avenir Demi", $text-sm, $black, 2rem, none, capitalize);
+      @include typography($text-sm, 600, $black, 2rem, none, capitalize);
       margin: 0;
       padding: 0;
     }

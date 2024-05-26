@@ -4,6 +4,7 @@
 /*         FONTS IMPORTS          */
 /* ****************************** */
 
+/* REGULAR */
 @font-face {
   font-family: 'Avenir';
   src: url('../../assets/fonts/AvenirNextLTPro.ttf') format('truetype'),
@@ -12,7 +13,7 @@
   font-style: normal;
 }
 
-
+/* DEMI */
 @font-face {
   font-family: 'Avenir';
   src: url('../../assets/fonts/AvenirNextLTProDemi.ttf') format('truetype'),
@@ -21,6 +22,7 @@
   font-style: normal;
 }
 
+/* BOLD */
 @font-face {
   font-family: 'Avenir';
   src: url('../../assets/fonts/AvenirNextLTProBold.ttf') format('truetype'),
