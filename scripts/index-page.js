@@ -94,24 +94,41 @@ const commentSchema = {
           className: "comment__bottom",
           children: [
             {
-              type: "button",
-              className: "comment__button--like",
+              type: "div",
+              className: "comment_buttons",
               children: [
                 {
-                  type: "img",
-                  className: "comment__icon",
-                  content: "like"
+                  type: "button",
+                  className: "comment__button--like",
+                  children: [
+                    {
+                       type: "img",
+                       className: "comment__icon",
+                       content: "like"
+                     }
+                  ]
+                },
+                {
+                  type: "button",
+                  className: "comment__button--delete",
+                  children: [
+                    {
+                      type: "img",
+                      className: "comment__icon",
+                      content: "delete"
+                    }
+                  ]
                 }
               ]
             },
             {
-              type: "button",
-              className: "comment__button--delete",
+              type: "div",
+              className: "comment__details",
               children: [
                 {
-                  type: "img",
-                  className: "comment__icon",
-                  content: "delete"
+                  type: "p",
+                  className: "comment__total-likes",
+                  content: "likes"
                 }
               ]
             }
@@ -132,6 +149,9 @@ function createComponent(schema, data) {
   /* ASSIGN DATA */
   if (schema.content in data) {
     component.textContent = data[schema.content];
+    if (schema.content === "likes") {
+      component.textContent = `${data[schema.content]} ${data[schema.content] === 1 ? 'like' : 'likes'}`;
+    }
   } else {
     component.textContent = schema.content
   };
