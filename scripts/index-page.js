@@ -94,14 +94,26 @@ const commentSchema = {
           className: "comment__bottom",
           children: [
             {
-              type: "img",
-              className: "comment__like",
-              content: "like"
+              type: "button",
+              className: "comment__button",
+              children: [
+                {
+                  type: "img",
+                  className: "comment__icon",
+                  content: "like"
+                }
+              ]
             },
             {
-              type: "img",
-              className: "comment__delete",
-              content: "delete"
+              type: "button",
+              className: "comment__button",
+              children: [
+                {
+                  type: "img",
+                  className: "comment__icon",
+                  content: "delete"
+                }
+              ]
             }
           ]
         }
