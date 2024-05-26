@@ -213,16 +213,24 @@ function createComponent(schema, data) {
   const component = document.createElement(schema.type);
   component.classList.add(schema.className);
 
+  /* ASSIGN DATA */
   if (schema.content in data) {
     component.textContent = data[schema.content];
   } else {
     component.textContent = schema.content;
   };
 
+  /* FORMAT DATES */
   if (schema.content === "date") {
     component.textContent = formatDate(data.date);
   };
 
+  /* ADD EVENT LISTENERS */
+  if (schema.type === "article") {
+    component.addEventListener("click", selectShow);
+  };
+
+  /* CREATE CHILDREN */
   if (schema.children) {
     schema.children.forEach(child => {
       component.appendChild(createComponent(child, data));
@@ -261,11 +269,6 @@ function selectShow(e) {
 
   show.classList.add("show--selected");
 };
-
-const showComponents = document.querySelectorAll(".show");
-showComponents.forEach((show) => {
-  show.addEventListener("click", selectShow);
-});
 
 //******************************************************//
 //                   DATE FORMAT LOGIC                  //
