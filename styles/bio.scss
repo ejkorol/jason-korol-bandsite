@@ -133,49 +133,40 @@
   background-color: $alabaster;
   padding: 0 1.5rem;
   margin-top: 2rem;
+  @include respond-to-min($tablet) {
+    padding: 2rem 4rem;
+  }
+  @include respond-to-min($desktop) {
+    padding: 2rem 8rem;
+  }
   &__header {
     margin: 0;
     padding: 2rem 0 1.5rem 0;
     @include typography("Avenir Demi", $text-xl, $black, 2rem, none, capitalize);
+    @include respond-to-min($tablet) {
+      padding: 2rem 0 2.5rem 0;
+    }
   }
 
   &__images {
     display: flex;
     flex-direction: column;
+    @include respond-to-min($tablet) {
+      flex-wrap: wrap;
+      flex-direction: row;
+      justify-content: space-between;
+    }
   }
   &__image {
     width: 100%;
     margin-bottom: 1.5rem;
     cursor: pointer;
     @extend %image-animation;
-  }
-}
-
-/* GALLERY TABLET */
-@include respond-to-min($tablet) {
-  .gallery {
-    padding: 2rem 4rem;
-    &__header {
-      padding: 2rem 0 2.5rem 0;
-    }
-
-    &__images {
-      flex-wrap: wrap;
-      flex-direction: row;
-      justify-content: space-between;
-    }
-    &__image {
+    @include respond-to-min($tablet) {
       width: 31%;
       margin: 0;
       margin-bottom: 2rem;
     }
-  }
-}
-
-/* GALLERY DESKTOP */
-@include respond-to-min($tablet) {
-  .gallery {
-    padding: 2rem 8rem;
   }
 }
 
