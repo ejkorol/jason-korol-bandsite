@@ -8,21 +8,21 @@
 /* INPUT */
 %input-style {
   background-color: $alabaster;
-  border: solid 1px $mercury;
-  border-radius: 4px;
+  border: solid 0.063rem $mercury;
+  border-radius: 0.25rem;
   padding: 0.75rem;
   transition: 0.5s;
   outline-color: initial;
   @include typography($text-sm, 400, $black, 2rem, none, none);
   &:focus {
-    outline: 1px solid $dark-black;
+    outline: 0.063rem solid $dark-black;
   }
 }
 
 /* ERROR */
 .form-error {
   &:focus {
-    outline: 1px solid $error;
+    outline: 0.063rem solid $error;
   }
 }
 
@@ -32,14 +32,14 @@
   width: 100%;
   background-color: $black;
   border-style: none;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   padding: 0.5rem 2rem;
   @include typography($text-sm, 600, $white, 2rem, none, uppercase);
   letter-spacing: 0.05rem;
   transition: 0.3s;
   &:hover {
     background-color: $dark-black;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0.438rem 1.813rem 0px;
   }
   &:disabled {
     background-color: $silver;
@@ -59,7 +59,7 @@
   }
   &__input-name {
     @extend %input-style;
-    height: 36px;
+    height: 2.25rem;
   }
   &__textarea {
     @extend %input-style;

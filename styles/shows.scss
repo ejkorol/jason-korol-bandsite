@@ -21,14 +21,14 @@
   width: 100%;
   background-color: $black;
   border-style: none;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   padding: 0.5rem 2rem;
   @include typography($text-xs, 600, $white, 2rem, none, uppercase);
   letter-spacing: 0.05rem;
   transition: 0.3s;
   &:hover {
     background-color: $dark-black;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 0.438rem 1.813rem 0px;
   }
 }
 
@@ -104,7 +104,7 @@
   display: flex;
   flex-direction: column;
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-  border-bottom: solid 1px $mercury;
+  border-bottom: solid 0.063rem $mercury;
   @extend %article-hover;
   @include respond-to-min($tablet) {
     padding: 0.5rem 4rem 0.5rem 4rem;
