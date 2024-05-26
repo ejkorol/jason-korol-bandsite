@@ -108,8 +108,38 @@
   padding: 0.5rem 1.5rem 0.5rem 1.5rem;
   border-bottom: solid 1px $mercury;
   @extend %article-hover;
+  @include respond-to-min($tablet) {
+    padding: 0.5rem 4rem 0.5rem 4rem;
+    flex-direction: row;
+    align-items: center;
+  }
+  @include respond-to-min($desktop) {
+    padding: 0;
+  }
+  &__date {
+    @include respond-to-min($tablet) {
+      width: 25%;
+    }
+    @include respond-to-min($desktop) {
+      padding: 0 1rem;
+    }
+  }
   &__venue {
     margin: 1rem 0;
+    @include respond-to-min($tablet) {
+      width: 25%;
+    }
+    @include respond-to-min($desktop) {
+      padding: 0 1rem;
+    }
+  }
+  &__location {
+    @include respond-to-min($tablet) {
+      width: 25%;
+    }
+    @include respond-to-min($desktop) {
+      padding: 0 1rem;
+    }
   }
   &__text {
     @include typography("Avenir Regular", $text-sm, $black, 2rem, none, capitalize);
@@ -129,54 +159,28 @@
   &__button-container {
     width: 100%;
     margin: 1rem 0;
+    @include respond-to-min($tablet) {
+      width: 25%;
+    }
+    @include respond-to-min($desktop) {
+      padding: 0 1rem;
+    }
   }
   &__button {
     @extend %button;
+  }
+  &__text {
+    &--helper {
+      @include respond-to-min($tablet) {
+        display: none;
+      }
+    }
   }
   &--selected {
     background-color: $mercury;
     transition: 0.3s ease;
     &:hover {
       background-color: $mercury;
-    }
-  }
-}
-
-/* SHOW ARTICLE TABLET */
-@include respond-to-min($tablet) {
-  .show {
-    padding: 0.5rem 4rem 0.5rem 4rem;
-    flex-direction: row;
-    align-items: center;
-    &__date {
-      width: 25%;
-    }
-    &__venue {
-      width: 25%;
-    }
-    &__location {
-      width: 25%;
-    }
-    &__button-container {
-      width: 25%;
-    }
-    &__text {
-      &--helper {
-        display: none;
-      }
-    }
-  }
-}
-
-/* SHOW ARTICLE DESKTOP */
-@include respond-to-min($desktop) {
-  .show {
-    padding: 0;
-    &__date, &__venue, &__location {
-      padding: 0 1rem;
-    }
-    &__button-container {
-      padding: 0 1rem;
     }
   }
 }
