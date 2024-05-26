@@ -1,38 +1,42 @@
 //**********************************//
+//      QUICK SORT SHOWS DATA       //
+//**********************************//
+function quickSort (shows) {
+
+  if (shows.length <= 1) {
+    return shows;
+  };
+
+  const pivot = shows[shows.length - 1].date;
+  let subArr1 = [];
+  let subArr2 = [];
+
+  for (let i = 0; i < shows.length - 1; i++) {
+    if (shows[i].date < pivot) {
+      subArr1.push(shows[i]);
+    } else {
+      subArr2.push(shows[i]);
+    };
+  };
+
+  return [...quickSort(subArr1), shows[shows.length - 1], ...quickSort(subArr2)];
+};
+
+//**********************************//
 //            SHOW DATA             //
 //**********************************//
-const shows = [
-  {
-    showDate: "Mon Sep 09 2024",
-    showVenue: "Ronald Lane",
-    showLocation: "San Francisco, CA"
-  },
-  {
-    showDate: "Tue Sep 17 2024",
-    showVenue: "Pier 3 East",
-    showLocation: "San Francisco, CA"
-  },
-  {
-    showDate: "Sat Oct 12 2024",
-    showVenue: "View Lounge",
-    showLocation: "San Francisco, CA"
-  },
-  {
-    showDate: "Sat Nov 16 2024",
-    showVenue: "Hyatt Agency",
-    showLocation: "San Francisco, CA"
-  },
-  {
-    showDate: "Fri Nov 29 2024",
-    showVenue: "Moscow Center",
-    showLocation: "San Francisco, CA"
-  },
-  {
-    showDate: "Wed Dec 18 2024",
-    showVenue: "Press Club",
-    showLocation: "San Francisco, CA"
-  }
-];
+
+async function fetchShows() {
+  try {
+    const shows = await bandsiteApi.getShows();
+    let sortedShows = quickSort(shows);
+    render(sortedShows, showSchema);
+  } catch (e) {
+    console.error(e);
+  };
+};
+
+fetchShows();
 
 //**********************************//
 //           PAGE SCEHMA            //
@@ -124,7 +128,7 @@ const showSchema = {
         {
           type: "p",
           className: "show__text--bold",
-          content: "showDate"
+          content: "date"
         }
       ]
     },
@@ -140,7 +144,7 @@ const showSchema = {
         {
           type: "p",
           className: "show__text",
-          content: "showVenue"
+          content: "place"
         }
       ]
     },
@@ -156,7 +160,7 @@ const showSchema = {
         {
           type: "p",
           className: "show__text",
-          content: "showLocation"
+          content: "location"
         }
       ]
     },
@@ -209,10 +213,15 @@ renderLayout(pageSchema);
 function createComponent(schema, data) {
   const component = document.createElement(schema.type);
   component.classList.add(schema.className);
+
   if (schema.content in data) {
     component.textContent = data[schema.content];
   } else {
     component.textContent = schema.content;
+  };
+
+  if (schema.content === "date") {
+    component.textContent = formatDate(data.date);
   };
 
   if (schema.children) {
@@ -234,7 +243,6 @@ function render(data, schema) {
   });
 };
 
-render(shows, showSchema);
 
 //******************************************************//
 //                     SHOW STATES                      //
@@ -259,3 +267,21 @@ const showComponents = document.querySelectorAll(".show");
 showComponents.forEach((show) => {
   show.addEventListener("click", selectShow);
 });
+
+//******************************************************//
+//                   DATE FORMAT LOGIC                  //
+//******************************************************//
+function formatDate(timestamp) {
+  const date = new Date(timestamp);
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  const weekDay = days[date.getDay()];
+  const day = date.getDay();
+  const month = months[date.getMonth()];
+  const year = date.getFullYear();
+
+  const formattedDateString = `${weekDay} ${month} ${day} ${year}`;
+
+  return formattedDateString;
+};
