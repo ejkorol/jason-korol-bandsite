@@ -150,11 +150,13 @@ function createComponent(schema, data) {
   if (schema.content === "like") {
     component.src = "./assets/icons/icon-like.svg";
     component.id = data.id;
+    component.textContent = "";
   };
 
   if (schema.content === "delete") {
     component.src = "./assets/icons/icon-delete.svg";
     component.id = data.id;
+    component.textContent = "";
   };
 
   /* CREATE CHILDREN */
