@@ -79,9 +79,31 @@ const commentSchema = {
           ]
         },
         {
-          type: "p",
-          className: "comment__text",
-          content: "comment"
+          type: "div",
+          className: "comment__body",
+          children: [
+            {
+              type: "p",
+              className: "comment__text",
+              content: "comment"
+            }
+          ],
+        },
+        {
+          type: "div",
+          className: "comment__bottom",
+          children: [
+            {
+              type: "img",
+              className: "comment__like",
+              content: "like"
+            },
+            {
+              type: "img",
+              className: "comment__delete",
+              content: "delete"
+            }
+          ]
         }
       ]
     }
@@ -112,6 +134,14 @@ function createComponent(schema, data) {
   if (schema.imageSrc === "") {
     component.classList.add("comment__image--placeholder");
   }
+
+  if (schema.content === "like") {
+    component.src = "./assets/icons/icon-like.svg";
+  };
+
+  if (schema.content === "delete") {
+    component.src = "./assets/icons/icon-delete.svg";
+  };
 
   /* CREATE CHILDREN */
   if (schema.children) {
