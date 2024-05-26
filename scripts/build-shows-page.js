@@ -23,9 +23,8 @@ function quickSort (shows) {
 };
 
 //**********************************//
-//            SHOW DATA             //
+//          FETCH SHOW DATA         //
 //**********************************//
-
 async function fetchShows() {
   try {
     const shows = await bandsiteApi.getShows();
