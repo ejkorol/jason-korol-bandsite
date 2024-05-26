@@ -1,29 +1,43 @@
 //**********************************//
-//          COMMENTS DATA           //
+//     QUICK SORT COMMENTS DATA     //
 //**********************************//
-let comments = [
-  {
-    userName: "Victor Pinto",
-    comment: "This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.",
-    commentDate: Date.parse("2023-10-02"),
-    uid: "",
-    userImage: ""
-  },
-  {
-    userName: "Christina Cabrera",
-    comment: "I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.",
-    commentDate: Date.parse("2023-9-28"),
-    uid: "",
-    userImage: ""
-  },
-  {
-    userName: "Isaac Tadesse",
-    comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-    commentDate: Date.parse("2023-9-20"),
-    uid: "",
-    userImage: ""
-  }
-];
+function quickSort (comments) {
+
+  if (comments.length <= 1) {
+    return comments;
+  };
+
+  const pivot = comments[comments.length - 1].timestamp;
+  let subArr1 = [];
+  let subArr2 = [];
+
+  for (let i = 0; i < comments.length - 1; i++) {
+    if (comments[i].timestamp < pivot) {
+      subArr1.push(comments[i]);
+    } else {
+      subArr2.push(comments[i]);
+    };
+  };
+
+  return [...quickSort(subArr2), comments[comments.length - 1], ...quickSort(subArr1)];
+};
+
+//**********************************//
+//       FETCH COMMENTS DATA        //
+//**********************************//
+async function fetchComments() {
+  try {
+    const comments = await bandsiteApi.getComments();
+    let sortedComments = quickSort(comments);
+    const feed = document.getElementById("feed");
+    feed.innerHTML = "";
+    render(sortedComments, commentSchema);
+  } catch (e) {
+    console.error(e);
+  };
+};
+
+fetchComments();
 
 //**********************************//
 //          COMMENT SCHEMA          //
@@ -54,12 +68,12 @@ const commentSchema = {
             {
               type: "h3",
               className: "comment__header",
-              content: "userName"
+              content: "name"
             },
             {
               type: "p",
               className: "comment__text--date",
-              content: "commentDate",
+              content: "timestamp",
               uid: ""
             }
           ]
@@ -75,40 +89,31 @@ const commentSchema = {
 };
 
 //******************************************************//
-//                GENERATE UID FOR DATES                //
-//******************************************************//
-function uid () {
-  return Math.random().toString(16).slice(2)
-};
-
-//******************************************************//
 //                   CREATE COMMENTS                    //
 //******************************************************//
 function createComponent(schema, data) {
   const component = document.createElement(schema.type);
   component.classList.add(schema.className);
 
+  /* ASSIGN DATA */
   if (schema.content in data) {
     component.textContent = data[schema.content];
   } else {
     component.textContent = schema.content
   };
 
-  if (schema.content === "commentDate") {
-    const uuid = uid();
-    data.uid = uuid;
-    component.id = uuid;
-    component.textContent = elapsedDuration(data.commentDate);
+  /* SET VERBOISE TIMESTAMP */
+  if (schema.content === "timestamp") {
+    component.id = data.id;
+    component.textContent = elapsedDuration(data.timestamp);
   };
 
+  /* ASSIGN PLACEHOLDER IMAGE CLASS */
   if (schema.imageSrc === "") {
-    if (data.userImage === "") {
-      component.classList.add("comment__image--placeholder");
-    } else {
-      component.src = data.userImage;
-    };
-  };
+    component.classList.add("comment__image--placeholder");
+  }
 
+  /* CREATE CHILDREN */
   if (schema.children) {
     schema.children.forEach(child => {
       component.appendChild(createComponent(child, data));
@@ -128,33 +133,30 @@ function render(data, schema) {
   });
 };
 
-render(comments, commentSchema);
-
 //******************************************************//
 //                     FORM LOGIC                       //
 //******************************************************//
 
-/* CREATE COMMENT */
-function addComment(comment) {
-  comments.unshift(comment);
-  const feed = document.getElementById("feed");
-  feed.innerHTML = "";
-  return render(comments, commentSchema);
+/* POST COMMENT */
+async function postComment(comment) {
+  try {
+    await bandsiteApi.postComment(comment);
+    fetchComments();
+  } catch (e) {
+    console.error(e);
+  };
 };
 
 /* LISTEN TO FORM */
 document.getElementById("comment-form").addEventListener('submit', e => {
   e.preventDefault();
-  let imageSrc = "./assets/images/Mohan-muruge.jpg";
 
   const comment = {
-    userName: e.target.name.value,
-    comment: e.target.comment.value,
-    commentDate: Date.now(),
-    userImage: imageSrc
+    name: e.target.name.value,
+    comment: e.target.comment.value
   };
 
-  addComment(comment);
+  postComment(comment);
   e.target.reset();
   buttonEl.disabled = true;
 });
@@ -168,7 +170,7 @@ let buttonEl = document.getElementById("form-button");
 
 function validateForm(inputEl, commentEl, buttonEl) {
   return function () {
-    const nameValue = inputEl.value.trim(); // <- Remove whitespace to prevent false submission
+    const nameValue = inputEl.value.trim();
     const commentValue = commentEl.value.trim();
     
     if (nameValue === "" || commentValue === "") {
@@ -195,11 +197,12 @@ setInterval(() => {
   updateCommentTime()
 }, 60000);
 
-// UPDATE TIME STAMPS
-function updateCommentTime() {
+/* UPDATE TIME STAMPS */
+async function updateCommentTime() {
+  const comments = await bandsiteApi.getComments()
   comments.forEach((comment) => {
-    let commentTime = document.getElementById(comment.uid);
-    commentTime.innerText = elapsedDuration(comment.commentDate);
+    let commentTime = document.getElementById(comment.id);
+    commentTime.innerText = elapsedDuration(comment.timestamp);
   })
 };
 
