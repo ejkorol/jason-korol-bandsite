@@ -49,8 +49,6 @@
 /* ****************************** */
 /*               FORM             */
 /* ****************************** */
-
-/* FORM MOBILE */
 .comment-form {
   display: flex;
   flex-direction: column;
@@ -68,13 +66,7 @@
   }
   &__button {
     @extend %button;
-  }
-}
-
-/* FORM TABLET */
-@include respond-to-min($tablet) {
-  .comment-form {
-    &__button {
+    @include respond-to-min($tablet) {
       margin-left: auto;
       width: 9.5rem;
     }

@@ -2,7 +2,7 @@
 @use "./variables" as *;
 
 /* ****************************** */
-/*              HEADER            */
+/*           ANIMATIONS           */
 /* ****************************** */
 
 /* HEADER LINK ANIMATIONS */
@@ -42,7 +42,9 @@
   }
 }
 
-/* HEADER MOBILE */
+/* ****************************** */
+/*            HEADER              */
+/* ****************************** */
 .header {
   background-color: $black;
   height: 8.75rem;

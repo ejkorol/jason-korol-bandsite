@@ -6,8 +6,6 @@
 /* ****************************** */
 /*         ABOUT SECTION          */
 /* ****************************** */
-
-/* ABOUT MOBILE */
 .about {
   display: flex;
   flex-direction: column;
@@ -128,7 +126,6 @@
   }
 }
 
-/* GALLERY MOBILE */
 .gallery {
   background-color: $alabaster;
   padding: 0 1.5rem;
@@ -173,8 +170,6 @@
 /* ****************************** */
 /*        COMMENTS SECTION        */
 /* ****************************** */
-
-/* COMMENTS SECTION MOBILE */
 .comments {
   padding: 1.5rem 1.5rem;
   @include respond-to-min($tablet) {

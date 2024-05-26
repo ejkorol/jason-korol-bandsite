@@ -49,12 +49,14 @@
 /*           MEDIA QUERIES        */
 /* ****************************** */
 
+/* MIN */
 @mixin respond-to-min($breakpoint) {
   @media (min-width: $breakpoint) {
     @content
   }
 }
 
+/* MAX */
 @mixin respond-to-max($breakpoint) {
   @media (max-width: $breakpoint) {
     @content
