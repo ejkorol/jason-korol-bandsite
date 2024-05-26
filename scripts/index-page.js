@@ -45,6 +45,7 @@ fetchComments();
 const commentSchema = {
   type: "article",
   className: "comment",
+  id: "id",
   children: [
     {
       type: "div",
@@ -73,8 +74,7 @@ const commentSchema = {
             {
               type: "p",
               className: "comment__text--date",
-              content: "timestamp",
-              uid: ""
+              content: "timestamp"
             }
           ]
         },
@@ -137,10 +137,12 @@ function createComponent(schema, data) {
 
   if (schema.content === "like") {
     component.src = "./assets/icons/icon-like.svg";
+    component.id = data.id;
   };
 
   if (schema.content === "delete") {
     component.src = "./assets/icons/icon-delete.svg";
+    component.id = data.id;
   };
 
   /* CREATE CHILDREN */
@@ -232,8 +234,10 @@ async function updateCommentTime() {
   const comments = await bandsiteApi.getComments()
   comments.forEach((comment) => {
     let commentTime = document.getElementById(comment.id);
-    commentTime.innerText = elapsedDuration(comment.timestamp);
-  })
+    if (commentTime.nodeName === "P") {
+      commentTime.innerText = elapsedDuration(comment.timestamp);
+    };
+  });
 };
 
 // GENERATE VERBOISE TIME
