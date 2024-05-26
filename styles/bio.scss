@@ -177,10 +177,19 @@
 /* COMMENTS SECTION MOBILE */
 .comments {
   padding: 1.5rem 1.5rem;
+  @include respond-to-min($tablet) {
+    padding: 2rem 4rem;
+  }
+  @include respond-to-min($desktop) {
+    padding: 2rem 8rem;
+  }
   &__header {
     margin: 0;
     padding: 0;
     @include typography("Avenir Demi", $text-lg, $black, 2rem, none, none);
+    @include respond-to-min($tablet) {
+      font-size: $text-xl;
+    }
   }
   &__image {
     width: 48px;
@@ -193,35 +202,18 @@
     gap: 1.5rem;
     padding: 1.5rem 0;
     border-bottom: solid 1px $mercury;
+    @include respond-to-min($tablet) {
+      padding: 1.5rem 4rem;
+    }
+    @include respond-to-min($desktop) {
+      padding: 1.5rem 8rem;
+    }
   }
   &__left {
     padding-top: 2rem;
   }
   &__right {
     flex-grow: 1;
-  }
-}
-
-/* COMMENTS SECTION TABLET */
-@include respond-to-min($tablet) {
-  .comments {
-    padding: 2rem 4rem;
-    &__header {
-      font-size: $text-xl;
-    }
-    &__form-wrapper {
-      padding: 1.5rem 4rem;
-    }
-  }
-}
-
-/* COMMENT SECTION DESKTOP */
-@include respond-to-min($desktop) {
-  .comments {
-    padding: 2rem 8rem;
-    &__form-wrapper {
-      padding: 1.5rem 8rem;
-    }
   }
 }
 
@@ -235,6 +227,12 @@
   gap: 1.5rem;
   padding: 1rem 0;
   border-bottom: solid 1px $mercury;
+  @include respond-to-min($tablet) {
+    padding: 1rem 4rem;
+  }
+  @include respond-to-min($desktop) {
+    padding: 1rem 8rem;
+  }
   &__content {
     width: 100%;
   }
@@ -283,19 +281,5 @@
   }
   &__total-likes {
     @include typography("Avenir Regular", $text-sm, $silver, 1.5rem, none, none);
-  }
-}
-
-/* COMMENT ARTICLE TABLET */
-@include respond-to-min($tablet) {
-  .comment {
-    padding: 1rem 4rem;
-  }
-}
-
-/* COMMENT ARTICLE DESKTOP */
-@include respond-to-min($desktop) {
-  .comment {
-    padding: 1rem 8rem;
   }
 }
