@@ -64,6 +64,12 @@ body, html {
     }
     &--bio {
       padding: 0 1.5rem;
+      @include respond-to-min($tablet) {
+        padding: 0 4rem;
+      }
+      @include respond-to-min($desktop) {
+        padding: 0 8rem;
+      }
     }
   }
   &__content {
