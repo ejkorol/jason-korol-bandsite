@@ -302,7 +302,7 @@
 .footer-section__subheader {
   margin: 2rem 0;
   font-family: Avenir, Arial, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #FFFFFF;
   line-height: 1.5rem;
@@ -366,7 +366,7 @@
   }
 }
 .footer-section__icon {
-  height: 2.5rem;
+  height: 2.25rem;
 }
 @media (min-width: 768px) {
   .footer-section__icon {
@@ -708,12 +708,12 @@ body, html {
 }
 .about__caption--header {
   font-family: Avenir, Arial, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #323232;
   line-height: 2.5rem;
   text-decoration: none;
-  text-transform: sentence;
+  text-transform: none;
 }
 @media (min-width: 768px) {
   .about__caption--header {
@@ -723,12 +723,12 @@ body, html {
 }
 .about__caption--subheader {
   font-family: Avenir, Arial, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #323232;
   line-height: 4rem;
   text-decoration: none;
-  text-transform: sentence;
+  text-transform: none;
 }
 @media (min-width: 768px) {
   .about__caption--subheader {
@@ -921,7 +921,6 @@ body, html {
 }
 .comments__form-wrapper {
   display: flex;
-  gap: 1.5rem;
   padding: 1.5rem 0;
   border-bottom: solid 0.063rem #E1E1E1;
 }
@@ -932,11 +931,12 @@ body, html {
 }
 @media (min-width: 1280px) {
   .comments__form-wrapper {
-    padding: 1.5rem 8rem;
+    padding: 2rem 8rem;
   }
 }
 .comments__left {
   padding-top: 2rem;
+  margin-right: 1.5rem;
 }
 .comments__right {
   flex-grow: 1;
@@ -945,10 +945,8 @@ body, html {
 /* ****************************** */
 /*         COMMENT ARTICLE        */
 /* ****************************** */
-/* COMMENT ARTICLE MOBILE */
 .comment {
   display: flex;
-  gap: 1.5rem;
   padding: 1rem 0;
   border-bottom: solid 0.063rem #E1E1E1;
 }
@@ -964,6 +962,9 @@ body, html {
 }
 .comment__content {
   width: 100%;
+}
+.comment__image-wrapper {
+  margin-right: 1.5rem;
 }
 .comment__image {
   width: 3rem;

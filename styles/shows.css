@@ -302,7 +302,7 @@
 .footer-section__subheader {
   margin: 2rem 0;
   font-family: Avenir, Arial, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #FFFFFF;
   line-height: 1.5rem;
@@ -366,7 +366,7 @@
   }
 }
 .footer-section__icon {
-  height: 2.5rem;
+  height: 2.25rem;
 }
 @media (min-width: 768px) {
   .footer-section__icon {
@@ -571,9 +571,9 @@ body, html {
   background-color: #323232;
   border-style: none;
   border-radius: 0.25rem;
-  padding: 0.5rem 2rem;
+  padding: 0.75rem 2rem;
   font-family: Avenir, Arial, sans-serif;
-  font-size: 0.75rem;
+  font-size: 1.5rem;
   font-weight: 600;
   color: #FFFFFF;
   line-height: 2rem;
@@ -586,12 +586,24 @@ body, html {
   background-color: #000000;
   box-shadow: rgba(100, 100, 111, 0.2) 0px 0.438rem 1.813rem 0px;
 }
+@media (min-width: 1280px) {
+  .show__button {
+    padding: 0.5rem 2rem;
+    font-family: Avenir, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    line-height: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+}
 
 /* ****************************** */
 /*         SHOWS SECTION          */
 /* ****************************** */
 .shows {
-  margin: 2rem 0;
+  margin: 2.5rem 0;
 }
 @media (min-width: 1280px) {
   .shows {
@@ -602,7 +614,7 @@ body, html {
 }
 .shows__left {
   padding: 0 1.5rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 @media (min-width: 768px) {
   .shows__left {
@@ -683,7 +695,7 @@ body, html {
 .show {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+  padding: 1rem 1.5rem 1rem 1.5rem;
   border-bottom: solid 0.063rem #E1E1E1;
 }
 @media (min-width: 768px) {
@@ -709,7 +721,7 @@ body, html {
   }
 }
 .show__venue {
-  margin: 1rem 0;
+  margin: 1.25rem 0;
 }
 @media (min-width: 768px) {
   .show__venue {
@@ -733,7 +745,7 @@ body, html {
 }
 .show__text {
   font-family: Avenir, Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   color: #323232;
   line-height: 2rem;
@@ -744,7 +756,7 @@ body, html {
 }
 .show__text--helper {
   font-family: Avenir, Arial, sans-serif;
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #AFAFAF;
   line-height: 2rem;
@@ -755,7 +767,7 @@ body, html {
 }
 .show__text--bold {
   font-family: Avenir, Arial, sans-serif;
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 600;
   color: #323232;
   line-height: 2rem;
