@@ -81,7 +81,7 @@
   }
   &__subheader {
     margin: 2rem 0;
-    @include typography($text-med, 600, $white, 1.5rem, none, capitalize);
+    @include typography($text-sm-med, 600, $white, 1.5rem, none, capitalize);
     @include respond-to-min($tablet) {
       font-size: $text-sm;
       line-height: 1rem;
@@ -119,7 +119,7 @@
     }
   }
   &__icon {
-    height: 2.5rem;
+    height: 2.25rem;
     @include respond-to-min($tablet) {
       height: 1.75rem;
     }

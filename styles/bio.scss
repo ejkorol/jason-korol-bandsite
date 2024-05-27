@@ -55,14 +55,14 @@
       margin-top: 2rem;
     }
     &--header {
-      @include typography($text-med, 600, $black, 2.5rem, none, sentence);
+      @include typography($text-sm-med, 600, $black, 2.5rem, none, none);
       @include respond-to-min($tablet) {
         font-size: $text-lg;
         line-height: 2.75rem;
       }
     }
     &--subheader {
-      @include typography($text-med, 600, $black, 4rem, none, sentence);
+      @include typography($text-sm-med, 600, $black, 4rem, none, none);
       @include respond-to-min($tablet) {
         line-height: 5rem;
       }
@@ -194,7 +194,6 @@
   }
   &__form-wrapper {
     display: flex;
-    gap: 1.5rem;
     padding: 1.5rem 0;
     border-bottom: solid 0.063rem $mercury;
     @include respond-to-min($tablet) {
@@ -206,6 +205,7 @@
   }
   &__left {
     padding-top: 2rem;
+    margin-right: 1.5rem;
   }
   &__right {
     flex-grow: 1;
@@ -215,11 +215,8 @@
 /* ****************************** */
 /*         COMMENT ARTICLE        */
 /* ****************************** */
-
-/* COMMENT ARTICLE MOBILE */
 .comment {
   display: flex;
-  gap: 1.5rem;
   padding: 1rem 0;
   border-bottom: solid 0.063rem $mercury;
   @include respond-to-min($tablet) {
@@ -230,6 +227,9 @@
   }
   &__content {
     width: 100%;
+  }
+  &__image-wrapper {
+    margin-right: 1.5rem;
   }
   &__image {
     width: 3rem;
