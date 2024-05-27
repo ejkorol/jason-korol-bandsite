@@ -13,58 +13,58 @@ class BandSiteApi {
 
   /* GET COMMENTS */
   async getComments() {
-    const route = "/comments";
+    const rte = `/comments`;
     try {
-      const response = await this.BandsiteServer.get(route);
-      return response.data;
-    } catch (e) {
-      console.error(e);
+      const res = await this.BandsiteServer.get(rte);
+      return res.data;
+    } catch (error) {
+      console.error(error)
     };
   };
 
   /* POST COMMENT */
-  async postComment(payload) {
-    const route = "/comments";
+  async postComment(comment) {
+    const rte = `/comments`;
     try {
-      const response = await this.BandsiteServer.post(route, payload);
-      return response.data;
-    } catch (e) {
-      console.error(e);
+      const res = await this.BandsiteServer.post(rte, comment);
+      return res.data;
+    } catch (error) {
+      console.error(error);
     };
   };
 
   /* LIKE COMMENT */
   async likeComment(id) {
-    const route = `/comments/${id}/like`;
+    const rte = `/comments/${id}/like`;
     try {
-      const response = await this.BandsiteServer.put(route);
-      return response.data;
-    } catch (e) {
+      const res = await this.BandsiteServer.put(rte);
+      return res.data;
+    } catch (error) {
       console.error(error);
     };
   };
 
   /* DELETE COMMENT */
   async deleteComment(id) {
-    const route = `/comments/${id}`;
+    const rte = `/comments/${id}`;
     try {
-      const response = await this.BandsiteServer.delete(route);
-      return response.data;
-    } catch (e) {
+      const res = await this.BandsiteServer.delete(rte);
+      return res.data;
+    } catch (error) {
       console.log(error);
     };
   };
 
   /* GET SHOWS */
   async getShows() {
-    const route = "/showdates";
+    const rte = `/showdates`;
     try {
-      const response = await this.BandsiteServer.get(route);
-      return response.data;
-    } catch (e) {
-      console.error(e);
+      const res = await this.BandsiteServer.get(rte);
+      return res.data;
+    } catch (error) {
+      console.error(error);
     };
-    console.log(response.data);
+    console.log(res.data);
   };
 
 };
