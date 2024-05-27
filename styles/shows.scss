@@ -30,6 +30,10 @@
     background-color: $dark-black;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 0.438rem 1.813rem 0px;
   }
+  @include respond-to-min($desktop) {
+    padding: 0.5rem 2rem;
+    @include typography($text-sm, 600, $white, 2rem, none, uppercase);
+  }
 }
 
 /* ****************************** */

@@ -200,7 +200,7 @@
       padding: 1.5rem 4rem;
     }
     @include respond-to-min($desktop) {
-      padding: 1.5rem 8rem;
+      padding: 2rem 8rem;
     }
   }
   &__left {
