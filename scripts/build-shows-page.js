@@ -215,14 +215,22 @@ function createComponent(schema, data) {
 
   /* ASSIGN DATA */
   if (schema.content in data) {
-    component.textContent = data[schema.content];
+    if (schema.className === "show__text--helper") {
+      component.textContent = schema.content;
+    } else {
+      component.textContent = data[schema.content];
+    }
   } else {
     component.textContent = schema.content;
   };
 
   /* FORMAT DATES */
   if (schema.content === "date") {
-    component.textContent = formatDate(data.date);
+    if (schema.className === "show__text--helper") {
+      component.textContent = schema.content;
+    } else {
+      component.textContent = formatDate(data.date);
+    }
   };
 
   /* ADD EVENT LISTENERS */
